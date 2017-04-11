@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -15,6 +16,7 @@ import (
 	"github.com/urfave/cli"
 )
 
+// Metric has a name, type, help and cardinality.
 type Metric struct {
 	Name        string
 	Type        string
@@ -28,10 +30,13 @@ func main() {
 	app.Action = ViewAction
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
-			Name:  "sort",
-			Usage: "sort by name, type or help",
+			Name:  "file, f",
+			Usage: "Read metrics from file",
 		},
-		cli.BoolFlag{},
+		cli.StringFlag{
+			Name:  "sort",
+			Usage: "Sort by name, type or help",
+		},
 	}
 
 	if err := app.Run(os.Args); err != nil {
@@ -39,17 +44,28 @@ func main() {
 	}
 }
 
+// ViewAction runs the default cli app.
 func ViewAction(c *cli.Context) error {
 	url := c.Args().First()
 	sortFlag := c.String("sort")
+	fileFlag := c.String("file")
 
-	if url == "" {
-		return errors.New("Please provide a URL, like http://localhost:8080/metrics")
-	}
-
-	metrics, err := getMetrics(url)
-	if err != nil {
-		return err
+	var metrics []Metric
+	if fileFlag != "" {
+		fileMetrics, err := FileMetrics(fileFlag)
+		if err != nil {
+			return err
+		}
+		metrics = fileMetrics
+	} else {
+		if url == "" {
+			return errors.New("Please provide a URL, like http://localhost:8080/metrics")
+		}
+		httpMetrics, err := HTTPMetrics(url)
+		if err != nil {
+			return err
+		}
+		metrics = httpMetrics
 	}
 
 	switch sortFlag {
@@ -78,9 +94,19 @@ func ViewAction(c *cli.Context) error {
 
 }
 
-func getMetrics(url string) ([]Metric, error) {
-	metricsMap := make(map[string]Metric, 64)
+// FileMetrics reads a file and returns its metrics.
+func FileMetrics(filename string) ([]Metric, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
 
+	return parseMetrics(file)
+}
+
+// HTTPMetrics makes an HTTP GET request again url and returns its metrics.
+func HTTPMetrics(url string) ([]Metric, error) {
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
@@ -93,7 +119,13 @@ func getMetrics(url string) ([]Metric, error) {
 	}
 	defer resp.Body.Close()
 
-	scanner := bufio.NewScanner(resp.Body)
+	return parseMetrics(resp.Body)
+}
+
+func parseMetrics(r io.Reader) ([]Metric, error) {
+	metricsMap := make(map[string]Metric, 64)
+
+	scanner := bufio.NewScanner(r)
 	for scanner.Scan() {
 		line := scanner.Text()
 		if strings.HasPrefix(line, "# HELP") {

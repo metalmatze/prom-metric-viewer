@@ -1,0 +1,31 @@
+workspace:
+  base: /go
+  path: src/github.com/metalmatze/prom-metric-viewer
+
+pipeline:
+  build:
+    image: golang:alpine
+    pull: true
+    commands:
+      - apk add -U git make
+      - make fmt
+      - make vet
+      - make lint
+      - make test
+      - make build
+    when:
+      event: [ push, tag, pull_request ]
+
+  release:
+    image: golang:alpine
+    commands:
+      - apk add -U git make
+      - make release
+    when:
+      event: tag
+
+  github:
+    image: plugins/github-release
+    files: dist/*
+    when:
+      event: tag

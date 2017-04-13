@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"html/template"
 	"io"
 	"log"
 	"net/http"
@@ -33,6 +34,10 @@ func main() {
 			Name:  "file, f",
 			Usage: "Read metrics from file",
 		},
+		cli.BoolFlag{
+			Name:  "http",
+			Usage: "Show the overview via a website",
+		},
 		cli.StringFlag{
 			Name:  "sort",
 			Usage: "Sort by name, type or help",
@@ -48,6 +53,7 @@ func main() {
 func ViewAction(c *cli.Context) error {
 	url := c.Args().First()
 	sortFlag := c.String("sort")
+	httpFlag := c.Bool("http")
 	fileFlag := c.String("file")
 
 	var metrics []Metric
@@ -83,6 +89,47 @@ func ViewAction(c *cli.Context) error {
 		})
 	}
 
+	if httpFlag {
+		return printHttp(metrics)
+	}
+
+	return printCli(metrics)
+}
+
+func printHttp(metrics []Metric) error {
+	html := `
+	<html>
+		<head>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<title>prom-metric-viewer</title>
+		</head>
+		<body>
+			<table class="table table-hover">
+				<tbody>
+				{{range .}}
+				<tr>
+				<td>{{.Name}}</td>
+				<td>{{.Type}}</td>
+				<td>{{.Cardinality}}</td>
+				<td>{{.Help}}</td>
+				</tr>
+				{{end}}
+				</tbody>
+			</table>
+		</body>
+	</html>
+	`
+	tem := template.New("")
+	tem.Parse(html)
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		tem.Execute(w, metrics)
+	})
+
+	return http.ListenAndServe(":8080", nil)
+}
+
+func printCli(metrics []Metric) error {
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 3, ' ', tabwriter.TabIndent)
 	fmt.Fprintln(w, "Name\tType\tCardinality\tHelp")
 	for _, metric := range metrics {
@@ -91,7 +138,6 @@ func ViewAction(c *cli.Context) error {
 		}
 	}
 	return w.Flush()
-
 }
 
 // FileMetrics reads a file and returns its metrics.

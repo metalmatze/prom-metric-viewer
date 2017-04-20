@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"html/template"
@@ -19,32 +20,11 @@ import (
 
 // Metric has a name, type, help and cardinality.
 type Metric struct {
-	Name        string
-	Type        string
-	Help        string
-	Cardinality int
+	Name        string `json:"name"`
+	Type        string `json:"type"`
+	Help        string `json:"help"`
+	Cardinality int    `json:"cardinality"`
 }
-
-type MetricsByName []Metric
-type MetricsByCardinality []Metric
-type MetricsByType []Metric
-type MetricsByHelp []Metric
-
-func (m MetricsByName) Len() int           { return len(m) }
-func (m MetricsByName) Less(i, j int) bool { return m[i].Name < m[j].Name }
-func (m MetricsByName) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-
-func (m MetricsByType) Len() int           { return len(m) }
-func (m MetricsByType) Less(i, j int) bool { return m[i].Type < m[j].Type }
-func (m MetricsByType) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-
-func (m MetricsByCardinality) Len() int           { return len(m) }
-func (m MetricsByCardinality) Less(i, j int) bool { return m[i].Cardinality < m[j].Cardinality }
-func (m MetricsByCardinality) Swap(i, j int)      { m[i], m[j] = m[j], m[j] }
-
-func (m MetricsByHelp) Len() int           { return len(m) }
-func (m MetricsByHelp) Less(i, j int) bool { return m[i].Help < m[j].Help }
-func (m MetricsByHelp) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
 
 func main() {
 	app := cli.NewApp()
@@ -97,13 +77,21 @@ func ViewAction(c *cli.Context) error {
 
 	switch sortFlag {
 	case "type":
-		sort.Sort(MetricsByType(metrics))
+		sort.Slice(metrics, func(i, j int) bool {
+			return metrics[i].Type < metrics[j].Type
+		})
 	case "cardinality":
-		sort.Sort(MetricsByCardinality(metrics))
+		sort.Slice(metrics, func(i, j int) bool {
+			return metrics[i].Cardinality < metrics[j].Cardinality
+		})
 	case "help":
-		sort.Sort(MetricsByHelp(metrics))
+		sort.Slice(metrics, func(i, j int) bool {
+			return metrics[i].Help < metrics[j].Help
+		})
 	default:
-		sort.Sort(MetricsByName(metrics))
+		sort.Slice(metrics, func(i, j int) bool {
+			return metrics[i].Name < metrics[j].Name
+		})
 	}
 
 	if webFlag {
@@ -123,29 +111,21 @@ func printWeb(metrics []Metric) error {
 		w.WriteHeader(http.StatusOK)
 	})
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		var sortBy sort.Interface
-		switch r.URL.Query().Get("by") {
-		case "type":
-			sortBy = MetricsByType(metrics)
-		case "cardinality":
-			sortBy = MetricsByCardinality(metrics)
-		case "help":
-			sortBy = MetricsByHelp(metrics)
-		default:
-			sortBy = MetricsByName(metrics)
-		}
-
-		if r.URL.Query().Get("order") == "desc" {
-			log.Println("sorting reverse")
-			sort.Reverse(sortBy)
-		} else {
-			log.Println("sorting")
-			sort.Sort(sortBy)
-		}
-
+	http.HandleFunc("/metrics", func(w http.ResponseWriter, r *http.Request) {
 		tem.Execute(w, metrics)
 	})
+
+	http.HandleFunc("/metrics.json", func(w http.ResponseWriter, r *http.Request) {
+		data, err := json.Marshal(metrics)
+		if err != nil {
+			http.Error(w, "failed to marshal json", http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(data)
+	})
+
+	http.Handle("/", http.FileServer(assetFS()))
 
 	return http.ListenAndServe(":8080", nil)
 }
@@ -214,7 +194,7 @@ func parseMetrics(r io.Reader) ([]Metric, error) {
 		}
 	}
 
-	metrics := make([]Metric, len(metricsMap))
+	var metrics []Metric
 	for _, metric := range metricsMap {
 		if metric.Name != "" {
 			metrics = append(metrics, metric)

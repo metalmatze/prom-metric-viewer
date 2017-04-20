@@ -26,3 +26,4 @@ _testmain.go
 coverage.out
 /dist
 /prom-metric-viewer
+/node_modules/

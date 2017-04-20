@@ -1,0 +1,48 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>prom-metric-viewer</title>
+</head>
+<body>
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>
+                Name
+                <a href="/?by=name&order=asc">🔼</a>
+                <a href="/?by=name&order=desc">🔽</a>
+            </th>
+            <th>
+                Type
+                <a href="/?by=type&order=asc">🔼</a>
+                <a href="/?by=type&order=desc">🔽</a>
+            </th>
+            <th>
+                Cardinality
+                <a href="/?by=cardinality&order=asc">🔼</a>
+                <a href="/?by=cardinality&order=desc">🔽</a>
+            </th>
+            <th>
+                Help
+                <a href="/?by=help&order=asc">🔼</a>
+                <a href="/?by=help&order=desc">🔽</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {{range .}}
+        {{if ne .Name ""}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Type}}</td>
+            <td>{{.Cardinality}}</td>
+            <td>{{.Help}}</td>
+        </tr>
+        {{end}}
+        {{end}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

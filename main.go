@@ -25,6 +25,27 @@ type Metric struct {
 	Cardinality int
 }
 
+type MetricsByName []Metric
+type MetricsByCardinality []Metric
+type MetricsByType []Metric
+type MetricsByHelp []Metric
+
+func (m MetricsByName) Len() int           { return len(m) }
+func (m MetricsByName) Less(i, j int) bool { return m[i].Name < m[j].Name }
+func (m MetricsByName) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
+
+func (m MetricsByType) Len() int           { return len(m) }
+func (m MetricsByType) Less(i, j int) bool { return m[i].Type < m[j].Type }
+func (m MetricsByType) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
+
+func (m MetricsByCardinality) Len() int           { return len(m) }
+func (m MetricsByCardinality) Less(i, j int) bool { return m[i].Cardinality < m[j].Cardinality }
+func (m MetricsByCardinality) Swap(i, j int)      { m[i], m[j] = m[j], m[j] }
+
+func (m MetricsByHelp) Len() int           { return len(m) }
+func (m MetricsByHelp) Less(i, j int) bool { return m[i].Help < m[j].Help }
+func (m MetricsByHelp) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
+
 func main() {
 	app := cli.NewApp()
 
@@ -34,13 +55,13 @@ func main() {
 			Name:  "file, f",
 			Usage: "Read metrics from file",
 		},
-		cli.BoolFlag{
-			Name:  "http",
-			Usage: "Show the overview via a website",
-		},
 		cli.StringFlag{
 			Name:  "sort",
 			Usage: "Sort by name, type or help",
+		},
+		cli.BoolFlag{
+			Name:  "web",
+			Usage: "Show the overview via a website",
 		},
 	}
 
@@ -53,8 +74,8 @@ func main() {
 func ViewAction(c *cli.Context) error {
 	url := c.Args().First()
 	sortFlag := c.String("sort")
-	httpFlag := c.Bool("http")
 	fileFlag := c.String("file")
+	webFlag := c.Bool("web")
 
 	var metrics []Metric
 	if fileFlag != "" {
@@ -76,53 +97,53 @@ func ViewAction(c *cli.Context) error {
 
 	switch sortFlag {
 	case "type":
-		sort.Slice(metrics, func(i, j int) bool {
-			return metrics[i].Type < metrics[j].Type
-		})
+		sort.Sort(MetricsByType(metrics))
+	case "cardinality":
+		sort.Sort(MetricsByCardinality(metrics))
 	case "help":
-		sort.Slice(metrics, func(i, j int) bool {
-			return metrics[i].Help < metrics[j].Help
-		})
+		sort.Sort(MetricsByHelp(metrics))
 	default:
-		sort.Slice(metrics, func(i, j int) bool {
-			return metrics[i].Name < metrics[j].Name
-		})
+		sort.Sort(MetricsByName(metrics))
 	}
 
-	if httpFlag {
-		return printHttp(metrics)
+	if webFlag {
+		return printWeb(metrics)
 	}
 
 	return printCli(metrics)
 }
 
-func printHttp(metrics []Metric) error {
-	html := `
-	<html>
-		<head>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			<title>prom-metric-viewer</title>
-		</head>
-		<body>
-			<table class="table table-hover">
-				<tbody>
-				{{range .}}
-				<tr>
-				<td>{{.Name}}</td>
-				<td>{{.Type}}</td>
-				<td>{{.Cardinality}}</td>
-				<td>{{.Help}}</td>
-				</tr>
-				{{end}}
-				</tbody>
-			</table>
-		</body>
-	</html>
-	`
-	tem := template.New("")
-	tem.Parse(html)
+func printWeb(metrics []Metric) error {
+	tem, err := template.ParseFiles("index.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		var sortBy sort.Interface
+		switch r.URL.Query().Get("by") {
+		case "type":
+			sortBy = MetricsByType(metrics)
+		case "cardinality":
+			sortBy = MetricsByCardinality(metrics)
+		case "help":
+			sortBy = MetricsByHelp(metrics)
+		default:
+			sortBy = MetricsByName(metrics)
+		}
+
+		if r.URL.Query().Get("order") == "desc" {
+			log.Println("sorting reverse")
+			sort.Reverse(sortBy)
+		} else {
+			log.Println("sorting")
+			sort.Sort(sortBy)
+		}
+
 		tem.Execute(w, metrics)
 	})
 

@@ -4,7 +4,7 @@
             <h3>prom-metric-viewer</h3>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Text input" v-model="filterQuery">
+                <input type="text" class="form-control" placeholder="Search metric names" v-model="filterQuery">
             </div>
 
             <p>We've found {{sortedMetrics.length}} metrics!</p>

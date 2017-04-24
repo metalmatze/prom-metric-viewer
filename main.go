@@ -22,7 +22,7 @@ import (
 
 // RawMetric is the actual metrics exported for prometheus
 type RawMetric struct {
-	Rawname string  `json:"rawname"`
+	Element string  `json:"element"`
 	Value   float64 `json:"value"`
 }
 
@@ -279,16 +279,16 @@ func parseRawMetric(line string) (string, RawMetric) {
 	name := parseName(line)
 
 	if spaces[1] == "NaN" {
-		return name, RawMetric{Rawname: spaces[0], Value: 0}
+		return name, RawMetric{Element: spaces[0], Value: 0}
 	}
 
 	value, err := strconv.ParseFloat(spaces[1], 64)
 	if err != nil {
 		log.Println("failed to parse value from metric to float64", spaces[1])
-		return "", RawMetric{Rawname: spaces[0], Value: 0}
+		return "", RawMetric{Element: spaces[0], Value: 0}
 	}
 
-	return name, RawMetric{Rawname: spaces[0], Value: value}
+	return name, RawMetric{Element: spaces[0], Value: value}
 }
 
 func parseName(line string) string {

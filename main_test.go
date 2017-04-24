@@ -40,11 +40,11 @@ func TestParseMetric(t *testing.T) {
 func TestParseRawMetric(t *testing.T) {
 	metric, raw := parseRawMetric(`process_cpu_seconds_total 0.06`)
 	assert.Equal(t, "process_cpu_seconds_total", metric)
-	assert.Equal(t, `process_cpu_seconds_total`, raw.Rawname)
+	assert.Equal(t, `process_cpu_seconds_total`, raw.Element)
 	assert.Equal(t, 0.06, raw.Value)
 
 	metric, raw = parseRawMetric(`node_filesystem_size{device="/dev/mapper/root",fstype="ext4",mountpoint="/rootfs"} 5.270837248e+10`)
 	assert.Equal(t, "node_filesystem_size", metric)
-	assert.Equal(t, `node_filesystem_size{device="/dev/mapper/root",fstype="ext4",mountpoint="/rootfs"}`, raw.Rawname)
+	assert.Equal(t, `node_filesystem_size{device="/dev/mapper/root",fstype="ext4",mountpoint="/rootfs"}`, raw.Element)
 	assert.Equal(t, 5.270837248e+10, raw.Value)
 }

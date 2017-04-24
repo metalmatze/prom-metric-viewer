@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 	"text/tabwriter"
 	"time"
@@ -19,12 +20,23 @@ import (
 	"github.com/urfave/cli"
 )
 
+// RawMetric is the actual metrics exported for prometheus
+type RawMetric struct {
+	Rawname string  `json:"rawname"`
+	Value   float64 `json:"value"`
+}
+
 // Metric has a name, type, help and cardinality.
 type Metric struct {
-	Name        string `json:"name"`
-	Type        string `json:"type"`
-	Help        string `json:"help"`
-	Cardinality int    `json:"cardinality"`
+	Name       string
+	Type       string
+	Help       string
+	RawMetrics []RawMetric
+}
+
+// Cardinality is the number of different labels in one metric.
+func (m Metric) Cardinality() int {
+	return len(m.RawMetrics)
 }
 
 func main() {
@@ -83,7 +95,7 @@ func ViewAction(c *cli.Context) error {
 		})
 	case "cardinality":
 		sort.Slice(metrics, func(i, j int) bool {
-			return metrics[i].Cardinality < metrics[j].Cardinality
+			return metrics[i].Cardinality() < metrics[j].Cardinality()
 		})
 	case "help":
 		sort.Slice(metrics, func(i, j int) bool {
@@ -100,6 +112,13 @@ func ViewAction(c *cli.Context) error {
 	}
 
 	return printCli(metrics)
+}
+
+type jsonMetric struct {
+	Name        string `json:"name"`
+	Type        string `json:"type"`
+	Cardinality int    `json:"cardinality"`
+	Help        string `json:"help"`
 }
 
 func printWeb(metrics []Metric) error {
@@ -123,8 +142,42 @@ func printWeb(metrics []Metric) error {
 	})
 
 	http.HandleFunc("/metrics.json", func(w http.ResponseWriter, r *http.Request) {
-		data, err := json.Marshal(metrics)
+		queryName := r.URL.Query().Get("name")
+		if queryName != "" {
+			for _, metric := range metrics {
+				if metric.Name == queryName {
+					payload, err := json.Marshal(metric.RawMetrics)
+					if err != nil {
+						log.Println(err)
+						http.Error(w, "failed to marshal raw metrics", http.StatusInternalServerError)
+						return
+					}
+
+					w.Write(payload)
+					w.Header().Set("Content-Type", "application/json")
+					return
+				}
+			}
+
+			fmt.Fprintln(w, "metric name was not found")
+			w.WriteHeader(http.StatusBadRequest)
+
+			return
+		}
+
+		var jsonMetrics []jsonMetric
+		for _, metric := range metrics {
+			jsonMetrics = append(jsonMetrics, jsonMetric{
+				Name:        metric.Name,
+				Type:        metric.Type,
+				Cardinality: metric.Cardinality(),
+				Help:        metric.Help,
+			})
+		}
+
+		data, err := json.Marshal(jsonMetrics)
 		if err != nil {
+			log.Println(err)
 			http.Error(w, "failed to marshal json", http.StatusInternalServerError)
 			return
 		}
@@ -142,7 +195,7 @@ func printCli(metrics []Metric) error {
 	fmt.Fprintln(w, "Name\tType\tCardinality\tHelp")
 	for _, metric := range metrics {
 		if metric.Name != "" {
-			fmt.Fprintf(w, "%s\t%s\t%d\t%s\n", metric.Name, metric.Type, metric.Cardinality, metric.Help)
+			fmt.Fprintf(w, "%s\t%s\t%d\t%s\n", metric.Name, metric.Type, metric.Cardinality(), metric.Help)
 		}
 	}
 	return w.Flush()
@@ -194,9 +247,9 @@ func parseMetrics(r io.Reader) ([]Metric, error) {
 			metric.Type = types
 			metricsMap[name] = metric
 		} else {
-			name := parseMetric(line)
+			name, raw := parseRawMetric(line)
 			metric := metricsMap[name]
-			metric.Cardinality = metric.Cardinality + 1
+			metric.RawMetrics = append(metric.RawMetrics, raw)
 			metricsMap[name] = metric
 		}
 	}
@@ -221,7 +274,24 @@ func parseType(line string) (string, string) {
 	return splits[2], splits[3]
 }
 
-func parseMetric(line string) string {
+func parseRawMetric(line string) (string, RawMetric) {
+	spaces := strings.Split(line, " ")
+	name := parseName(line)
+
+	if spaces[1] == "NaN" {
+		return name, RawMetric{Rawname: spaces[0], Value: 0}
+	}
+
+	value, err := strconv.ParseFloat(spaces[1], 64)
+	if err != nil {
+		log.Println("failed to parse value from metric to float64", spaces[1])
+		return "", RawMetric{Rawname: spaces[0], Value: 0}
+	}
+
+	return name, RawMetric{Rawname: spaces[0], Value: value}
+}
+
+func parseName(line string) string {
 	spaces := strings.Split(line, " ")
 	return strings.Split(spaces[0], "{")[0]
 }

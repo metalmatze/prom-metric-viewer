@@ -25,6 +25,7 @@ _testmain.go
 
 coverage.out
 /dist
-/prom-metric-viewer
+/main-packr.go
 /node_modules/
+/prom-metric-viewer
 /public/build.js

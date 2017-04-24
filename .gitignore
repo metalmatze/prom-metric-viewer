@@ -27,3 +27,4 @@ coverage.out
 /dist
 /prom-metric-viewer
 /node_modules/
+/public/build.js

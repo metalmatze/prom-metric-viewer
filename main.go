@@ -15,6 +15,7 @@ import (
 	"text/tabwriter"
 	"time"
 
+	"github.com/gobuffalo/packr"
 	"github.com/urfave/cli"
 )
 
@@ -102,10 +103,16 @@ func ViewAction(c *cli.Context) error {
 }
 
 func printWeb(metrics []Metric) error {
-	tem, err := template.ParseFiles("index.html")
+	box := packr.NewBox("./public")
+	tem := template.New("index")
+	tem, err := tem.Parse(box.String("index.html"))
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/metrics", http.StatusMovedPermanently)
+	})
 
 	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
@@ -125,7 +132,7 @@ func printWeb(metrics []Metric) error {
 		w.Write(data)
 	})
 
-	http.Handle("/", http.FileServer(assetFS()))
+	http.Handle("/build.js", http.FileServer(box))
 
 	return http.ListenAndServe(":8080", nil)
 }

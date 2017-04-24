@@ -16,7 +16,8 @@ all: build
 .PHONY: clean
 clean:
 	$(GO) clean -i ./...
-	rm -rf dist/
+	packr clean
+	rm -rf public/build.js
 
 .PHONY: fmt
 fmt:
@@ -37,18 +38,22 @@ lint:
 test:
 	@for PKG in $(PACKAGES); do go test -cover -coverprofile $$GOPATH/src/$$PKG/coverage.out $$PKG || exit 1; done;
 
+.PHONY: packr
+packr:
+	packr
+
 $(EXECUTABLE): $(wildcard *.go)
 	$(GO) build -v -ldflags '-w $(LDFLAGS)'
 
 .PHONY: build
-build: $(EXECUTABLE)
+build: packr $(EXECUTABLE)
 
 .PHONY: install
 install:
 	$(GO) install -v -ldflags '-w $(LDFLAGS)'
 
 .PHONY: release
-release:
+release: packr
 	@which gox > /dev/null; if [ $$? -ne 0 ]; then \
 		$(GO) get -u github.com/mitchellh/gox; \
 	fi

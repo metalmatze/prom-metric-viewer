@@ -13,11 +13,24 @@ PACKAGES = $(shell go list ./... | grep -v /vendor/)
 .PHONY: all
 all: build
 
+.PHONY: deps
+deps:
+	go get -v ./...
+	@which yarn > /dev/null; if [ $$? -ne 0 ]; then \
+		npm install; \
+	else \
+		yarn install; \
+	fi
+
 .PHONY: clean
 clean:
 	$(GO) clean -i ./...
 	packr clean
 	rm -rf public/build.js
+
+.PHONY: ui
+ui:
+	./node_modules/.bin/webpack
 
 .PHONY: fmt
 fmt:

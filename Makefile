@@ -15,7 +15,6 @@ all: build
 
 .PHONY: deps
 deps:
-	go get -v ./...
 	@which yarn > /dev/null; if [ $$? -ne 0 ]; then \
 		npm install; \
 	else \

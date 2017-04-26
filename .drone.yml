@@ -3,6 +3,12 @@ workspace:
   path: src/github.com/metalmatze/prom-metric-viewer
 
 pipeline:
+  ui:
+    image: kkarczmarczyk/node-yarn
+    commands:
+    - make deps
+    - make ui
+
   build:
     image: golang:alpine
     pull: true

@@ -10,6 +10,12 @@
 			"revisionTime": "2017-01-30T11:31:45Z"
 		},
 		{
+			"checksumSHA1": "8e9/ZeyT22utJzkzWcQAZuksnHk=",
+			"path": "github.com/gobuffalo/packr",
+			"revision": "760f97d097df93c63911e8fe90f13377ef7b2661",
+			"revisionTime": "2017-04-10T16:07:04Z"
+		},
+		{
 			"checksumSHA1": "zKKp5SZ3d3ycKe4EKMNT0BqAWBw=",
 			"origin": "github.com/stretchr/testify/vendor/github.com/pmezard/go-difflib/difflib",
 			"path": "github.com/pmezard/go-difflib/difflib",

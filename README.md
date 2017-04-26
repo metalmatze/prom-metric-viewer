@@ -7,6 +7,11 @@ It also includes a fancy Web UI to be even quicker viewing, sorting and searchin
 
 ## Install
 
+### Binaires
+Find a binary for your OS on the [releases](https://github.com/metalmatze/prom-metric-viewer/releases) page and download it. Make it executable (e.g. `chmod +x prom-metric-viewer`) and run it!
+
+### From Source
+
 Dependencies: Go (with `$GOPATH` setup), Node.js (best with yarn).
 
 ```bash

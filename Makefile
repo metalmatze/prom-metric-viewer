@@ -53,6 +53,9 @@ test:
 
 .PHONY: packr
 packr:
+	@which packr > /dev/null; if [ $$? -ne 0 ]; then \
+		$(GO) get -u github.com/gobuffalo/packr/packr; \
+	fi
 	packr
 
 $(EXECUTABLE): $(wildcard *.go)

@@ -3,7 +3,7 @@
 A simple CLI tool to view prometheus metrics of exporters with style.
 It also includes a fancy Web UI to be even quicker viewing, sorting and searching metrics.
 
-![screenshot.png](screenshot.png)
+![screenrecording.png](screenrecording.png)
 
 ## Install
 

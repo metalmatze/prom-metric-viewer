@@ -46,19 +46,19 @@
 </script>
 
 <style scoped>
-    table {
-        cursor: default;
-        box-shadow: 2px 2px 5px #aaa;
-        font-size: 12px;
-        background-color: #f1f1f1 !important;
-        border: 1px solid #e0e0e0;
-    }
+    /*table {*/
+        /*cursor: default;*/
+        /*box-shadow: 2px 2px 5px #aaa;*/
+        /*font-size: 12px;*/
+        /*background-color: #f1f1f1 !important;*/
+        /*border: 1px solid #e0e0e0;*/
+    /*}*/
 
-    table td {
-        word-break: break-all;
-    }
+    /*table td {*/
+        /*word-break: break-all;*/
+    /*}*/
 
-    table td.value {
-        width: 256px;
-    }
+    /*table td.value {*/
+        /*width: 256px;*/
+    /*}*/
 </style>

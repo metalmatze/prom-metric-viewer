@@ -28,4 +28,5 @@ coverage.out
 /main-packr.go
 /node_modules/
 /prom-metric-viewer
-/public/build.js
+/public/css
+/public/js

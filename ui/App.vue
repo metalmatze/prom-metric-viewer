@@ -1,52 +1,36 @@
 <template>
-    <div id="app">
-        <div class="container-fluid">
-            <h3>prom-metric-viewer</h3>
+    <div class="uk-container uk-container-large">
+        <h3>prom-metric-viewer</h3>
 
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search metric names" v-model="filterQuery">
-            </div>
+        <form class="uk-search uk-search-default">
+            <span uk-search-icon></span>
+            <input class="uk-search-input" type="search" placeholder="Search metrics" v-model="filterQuery">
+        </form>
 
-            <p>We've found {{sortedMetrics.length / 2}} metrics!</p>
+        <p>We've found {{sortedMetrics.length / 2}} metrics!</p>
 
-            <table class="table table-hover table-condensed">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th @click="sortBy('name')" :class="{ active: sortKey == 'name'}">
-                        Name <span class="glyphicon"
-                                   :class="sortOrder > 0 ? 'glyphicon-menu-up' : 'glyphicon-menu-down'"
-                                   v-if="sortKey === 'name'"></span>
-                    </th>
-                    <th @click="sortBy('type')" :class="{ active: sortKey == 'type'}">
-                        Type <span class="glyphicon"
-                                   :class="sortOrder > 0 ? 'glyphicon-menu-up' : 'glyphicon-menu-down'"
-                                   v-if="sortKey === 'type'"></span>
-                    </th>
-                    <th @click="sortBy('cardinality')" :class="{ active: sortKey == 'cardinality'}">
-                        Cardinality <span class="glyphicon"
-                                          :class="sortOrder > 0 ? 'glyphicon-menu-up' : 'glyphicon-menu-down'"
-                                          v-if="sortKey === 'cardinality'"></span>
-                    </th>
-                    <th @click="sortBy('help')" :class="{ active: sortKey == 'help'}">
-                        Help <span class="glyphicon"
-                                   :class="sortOrder > 0 ? 'glyphicon-menu-up' : 'glyphicon-menu-down'"
-                                   v-if="sortKey === 'help'"></span>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <table-row
-                        v-for="metric in sortedMetrics"
-                        :key="metric.key"
-                        :metric="metric"
-                        @toggleRaw="toggleRaw">
-                </table-row>
-                </tbody>
-            </table>
-        </div>
+        <table class="uk-table uk-table-divider uk-table-hover uk-table-small">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Help</th>
+            </tr>
+            </thead>
+            <tbody>
+            <table-row
+                    v-for="metric in sortedMetrics"
+                    :key="metric.key"
+                    :metric="metric"
+                    @toggleRaw="toggleRaw">
+            </table-row>
+            </tbody>
+        </table>
     </div>
 </template>
+
 
 <script>
     import axios from 'axios';
@@ -135,11 +119,7 @@
 </script>
 
 <style scoped>
-    .table {
-        font-size: 12px;
-    }
-
-    .table > thead > tr > th.active {
-        background: none;
+    form.uk-search {
+        width: 300px;
     }
 </style>

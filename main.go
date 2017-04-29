@@ -129,10 +129,6 @@ func printWeb(metrics []Metric) error {
 		log.Fatal(err)
 	}
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/metrics", http.StatusMovedPermanently)
-	})
-
 	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
@@ -185,7 +181,12 @@ func printWeb(metrics []Metric) error {
 		w.Write(data)
 	})
 
-	http.Handle("/build.js", http.FileServer(box))
+	http.Handle("/js/", http.FileServer(box))
+	http.Handle("/css/", http.FileServer(box))
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/metrics", http.StatusMovedPermanently)
+	})
 
 	return http.ListenAndServe(":8080", nil)
 }

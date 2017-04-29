@@ -1,14 +1,12 @@
 <template>
-    <tr v-if="metric.type=='raw' && metric.showRaw" class="raw">
+    <tr v-if="metric.type==='raw' && metric.showRaw" class="raw">
         <td colspan="5">
             <table-row-raw :name="metric.name"></table-row-raw>
         </td>
     </tr>
-    <tr v-else-if="metric.type!='raw'" @click="toggleRaw">
+    <tr v-else-if="metric.type!=='raw'" @click="toggleRaw">
         <td>
-            <span class="glyphicon"
-                  :class="!metric.showRaw ? 'glyphicon-plus' : 'glyphicon-minus'">
-            </span>
+            <span :uk-icon="!metric.showRaw ? 'icon: plus' : 'icon: minus'"></span>
         </td>
         <td>{{metric.name}}</td>
         <td>{{metric.type}}</td>
@@ -36,28 +34,36 @@
 </script>
 
 <style scoped>
-    .table tr td {
-        overflow: hidden;
-    }
-
-    .table tr.raw {
-        background: none;
-    }
-
-    .table tr.raw td {
-        padding: 20px;
-        cursor: default;
-    }
-
-    .table tr td > span.glyphicon {
-        opacity: 0.1;
-    }
-
-    .table tr:hover {
+    tr:hover {
         cursor: pointer;
     }
 
-    .table tr:hover span.glyphicon {
-        opacity: 1;
+    tr.raw {
+        cursor: default;
     }
+
+    tr.raw:hover {
+        background: none;
+    }
+
+    /*.table tr td {*/
+    /*overflow: hidden;*/
+    /*}*/
+
+    /*.table tr.raw {*/
+    /*background: none;*/
+    /*}*/
+
+    /*.table tr.raw td {*/
+    /*padding: 20px;*/
+    /*cursor: default;*/
+    /*}*/
+
+    /*.table tr td > span.glyphicon {*/
+    /*opacity: 0.1;*/
+    /*}*/
+
+    /*.table tr:hover span.glyphicon {*/
+    /*opacity: 1;*/
+    /*}*/
 </style>

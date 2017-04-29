@@ -25,11 +25,16 @@ deps:
 clean:
 	$(GO) clean -i ./...
 	packr clean
-	rm -rf public/build.js
+	rm -rf ./public/js ./public/css
 
 .PHONY: ui
 ui:
-	./node_modules/.bin/webpack
+	mkdir -p ./public/js ./public/css
+	cp ./node_modules/uikit/dist/css/uikit.css ./public/css
+	cp ./node_modules/jquery/dist/jquery.js ./public/js
+	cp ./node_modules/uikit/dist/js/uikit-icons.js ./public/js
+	cp ./node_modules/uikit/dist/js/uikit.js ./public/js
+	NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules
 
 .PHONY: fmt
 fmt:

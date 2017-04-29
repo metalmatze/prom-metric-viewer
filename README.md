@@ -12,7 +12,7 @@ Find a binary for your OS on the [releases](https://github.com/metalmatze/prom-m
 
 ### From Source
 
-Dependencies: Go (with `$GOPATH` setup), Node.js (best with yarn).
+Dependencies: Go 1.8+ (with `$GOPATH` setup), Node.js (best with yarn).
 
 ```bash
 go get -u -v github.com/metalmatze/prom-metric-viewer

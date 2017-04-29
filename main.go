@@ -126,7 +126,7 @@ func printWeb(metrics []Metric) error {
 	tem := template.New("index")
 	tem, err := tem.Parse(box.String("index.html"))
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -183,6 +183,31 @@ func printWeb(metrics []Metric) error {
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(data)
+	})
+
+	http.HandleFunc("/metrics.md", func(w http.ResponseWriter, r *http.Request) {
+		var filtered []Metric
+
+		contains := r.URL.Query().Get("contains")
+		if contains != "" {
+			for _, metric := range metrics {
+				if strings.Contains(metric.Name, contains) {
+					filtered = append(filtered, metric)
+				}
+			}
+		} else {
+			filtered = metrics
+		}
+
+		tab := tabwriter.NewWriter(w, 0, 0, 3, ' ', tabwriter.TabIndent)
+		fmt.Fprintln(tab, "|Name\t|Type\t|Cardinality\t|Help")
+		fmt.Fprintln(tab, "|----\t|----\t|-----------\t|----")
+		for _, metric := range filtered {
+			if metric.Name != "" {
+				fmt.Fprintf(tab, "| %s\t| %s\t| %d\t| %s\n", metric.Name, metric.Type, metric.Cardinality(), metric.Help)
+			}
+		}
+		tab.Flush()
 	})
 
 	http.Handle("/build.js", http.FileServer(box))

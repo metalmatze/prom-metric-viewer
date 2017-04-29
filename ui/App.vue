@@ -7,7 +7,10 @@
                 <input type="text" class="form-control" placeholder="Search metric names" v-model="filterQuery">
             </div>
 
-            <p>We've found {{sortedMetrics.length / 2}} metrics!</p>
+            <p>
+                We've found {{sortedMetrics.length / 2}} metrics! -
+                <a :href="`/metrics.md?contains=${filterQuery}`" target="_blank">Markdown Table</a>
+            </p>
 
             <table class="table table-hover table-condensed">
                 <thead>

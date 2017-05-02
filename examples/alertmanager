@@ -1,0 +1,392 @@
+# HELP alertmanager_alerts_invalid_total The total number of received alerts that were invalid.
+# TYPE alertmanager_alerts_invalid_total counter
+alertmanager_alerts_invalid_total 0
+# HELP alertmanager_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which alertmanager was built.
+# TYPE alertmanager_build_info gauge
+alertmanager_build_info{branch="master",goversion="go1.8.1",revision="5aeaf2cb988b0094b7998bbe6568bba23a0eb9c2",version="0.6.1"} 1
+# HELP alertmanager_config_hash Hash of the currently loaded alertmanager configuration.
+# TYPE alertmanager_config_hash gauge
+alertmanager_config_hash 2.00251786856837e+14
+# HELP alertmanager_config_last_reload_success_timestamp_seconds Timestamp of the last successful configuration reload.
+# TYPE alertmanager_config_last_reload_success_timestamp_seconds gauge
+alertmanager_config_last_reload_success_timestamp_seconds 1.493737998e+09
+# HELP alertmanager_config_last_reload_successful Whether the last configuration reload attempt was successful.
+# TYPE alertmanager_config_last_reload_successful gauge
+alertmanager_config_last_reload_successful 1
+# HELP alertmanager_nflog_gc_duration_seconds Duration of the last notification log garbage collection cycle.
+# TYPE alertmanager_nflog_gc_duration_seconds summary
+alertmanager_nflog_gc_duration_seconds{quantile="0.5"} NaN
+alertmanager_nflog_gc_duration_seconds{quantile="0.9"} NaN
+alertmanager_nflog_gc_duration_seconds{quantile="0.99"} NaN
+alertmanager_nflog_gc_duration_seconds_sum 0
+alertmanager_nflog_gc_duration_seconds_count 0
+# HELP alertmanager_nflog_queries_total Number of notification log queries were received.
+# TYPE alertmanager_nflog_queries_total counter
+alertmanager_nflog_queries_total 0
+# HELP alertmanager_nflog_query_duration_seconds Duration of notification log query evaluation.
+# TYPE alertmanager_nflog_query_duration_seconds histogram
+alertmanager_nflog_query_duration_seconds_bucket{le="0.005"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="0.01"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="0.025"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="0.05"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="0.1"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="0.25"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="0.5"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="1"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="2.5"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="5"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="10"} 0
+alertmanager_nflog_query_duration_seconds_bucket{le="+Inf"} 0
+alertmanager_nflog_query_duration_seconds_sum 0
+alertmanager_nflog_query_duration_seconds_count 0
+# HELP alertmanager_nflog_query_errors_total Number notification log received queries that failed.
+# TYPE alertmanager_nflog_query_errors_total counter
+alertmanager_nflog_query_errors_total 0
+# HELP alertmanager_nflog_snapshot_duration_seconds Duration of the last notification log snapshot.
+# TYPE alertmanager_nflog_snapshot_duration_seconds summary
+alertmanager_nflog_snapshot_duration_seconds{quantile="0.5"} NaN
+alertmanager_nflog_snapshot_duration_seconds{quantile="0.9"} NaN
+alertmanager_nflog_snapshot_duration_seconds{quantile="0.99"} NaN
+alertmanager_nflog_snapshot_duration_seconds_sum 0
+alertmanager_nflog_snapshot_duration_seconds_count 0
+# HELP alertmanager_silences_gc_duration_seconds Duration of the last silence garbage collection cycle.
+# TYPE alertmanager_silences_gc_duration_seconds summary
+alertmanager_silences_gc_duration_seconds{quantile="0.5"} NaN
+alertmanager_silences_gc_duration_seconds{quantile="0.9"} NaN
+alertmanager_silences_gc_duration_seconds{quantile="0.99"} NaN
+alertmanager_silences_gc_duration_seconds_sum 0
+alertmanager_silences_gc_duration_seconds_count 0
+# HELP alertmanager_silences_queries_total How many silence queries were received.
+# TYPE alertmanager_silences_queries_total counter
+alertmanager_silences_queries_total 0
+# HELP alertmanager_silences_query_duration_seconds Duration of silence query evaluation.
+# TYPE alertmanager_silences_query_duration_seconds histogram
+alertmanager_silences_query_duration_seconds_bucket{le="0.005"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="0.01"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="0.025"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="0.05"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="0.1"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="0.25"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="0.5"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="1"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="2.5"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="5"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="10"} 0
+alertmanager_silences_query_duration_seconds_bucket{le="+Inf"} 0
+alertmanager_silences_query_duration_seconds_sum 0
+alertmanager_silences_query_duration_seconds_count 0
+# HELP alertmanager_silences_query_errors_total How many silence received queries did not succeed.
+# TYPE alertmanager_silences_query_errors_total counter
+alertmanager_silences_query_errors_total 0
+# HELP alertmanager_silences_snapshot_duration_seconds Duration of the last silence snapshot.
+# TYPE alertmanager_silences_snapshot_duration_seconds summary
+alertmanager_silences_snapshot_duration_seconds{quantile="0.5"} NaN
+alertmanager_silences_snapshot_duration_seconds{quantile="0.9"} NaN
+alertmanager_silences_snapshot_duration_seconds{quantile="0.99"} NaN
+alertmanager_silences_snapshot_duration_seconds_sum 0
+alertmanager_silences_snapshot_duration_seconds_count 0
+# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 6.4214e-05
+go_gc_duration_seconds{quantile="0.25"} 6.4214e-05
+go_gc_duration_seconds{quantile="0.5"} 7.8229e-05
+go_gc_duration_seconds{quantile="0.75"} 7.8229e-05
+go_gc_duration_seconds{quantile="1"} 7.8229e-05
+go_gc_duration_seconds_sum 0.000142443
+go_gc_duration_seconds_count 2
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 39
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 8.36096e+06
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 1.0069536e+07
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.445795e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 8072
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 567296
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 8.36096e+06
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 409600
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 9.25696e+06
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 22112
+# HELP go_memstats_heap_released_bytes_total Total number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes_total counter
+go_memstats_heap_released_bytes_total 0
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 9.66656e+06
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.493738008979644e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 25
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 30184
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 4800
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 80712
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 81920
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 1.0408016e+07
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 1.241429e+06
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 819200
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 819200
+# HELP go_memstats_sys_bytes Number of bytes obtained by system. Sum of all system allocations.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 1.3838584e+07
+# HELP http_request_duration_microseconds The HTTP request latencies in microseconds.
+# TYPE http_request_duration_microseconds summary
+http_request_duration_microseconds{handler="add_alerts",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="add_alerts",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="add_alerts",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="add_alerts"} 0
+http_request_duration_microseconds_count{handler="add_alerts"} 0
+http_request_duration_microseconds{handler="add_silence",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="add_silence",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="add_silence",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="add_silence"} 0
+http_request_duration_microseconds_count{handler="add_silence"} 0
+http_request_duration_microseconds{handler="alert_groups",quantile="0.5"} 952.783
+http_request_duration_microseconds{handler="alert_groups",quantile="0.9"} 952.783
+http_request_duration_microseconds{handler="alert_groups",quantile="0.99"} 952.783
+http_request_duration_microseconds_sum{handler="alert_groups"} 952.783
+http_request_duration_microseconds_count{handler="alert_groups"} 1
+http_request_duration_microseconds{handler="app_files",quantile="0.5"} 233.137
+http_request_duration_microseconds{handler="app_files",quantile="0.9"} 556.183
+http_request_duration_microseconds{handler="app_files",quantile="0.99"} 556.183
+http_request_duration_microseconds_sum{handler="app_files"} 12061.779
+http_request_duration_microseconds_count{handler="app_files"} 5
+http_request_duration_microseconds{handler="del_silence",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="del_silence",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="del_silence",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="del_silence"} 0
+http_request_duration_microseconds_count{handler="del_silence"} 0
+http_request_duration_microseconds{handler="get_silence",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="get_silence",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="get_silence",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="get_silence"} 0
+http_request_duration_microseconds_count{handler="get_silence"} 0
+http_request_duration_microseconds{handler="index",quantile="0.5"} 809.352
+http_request_duration_microseconds{handler="index",quantile="0.9"} 809.352
+http_request_duration_microseconds{handler="index",quantile="0.99"} 809.352
+http_request_duration_microseconds_sum{handler="index"} 809.352
+http_request_duration_microseconds_count{handler="index"} 1
+http_request_duration_microseconds{handler="legacy_add_alerts",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="legacy_add_alerts",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="legacy_add_alerts",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="legacy_add_alerts"} 0
+http_request_duration_microseconds_count{handler="legacy_add_alerts"} 0
+http_request_duration_microseconds{handler="lib_files",quantile="0.5"} 729.454
+http_request_duration_microseconds{handler="lib_files",quantile="0.9"} 3302.087
+http_request_duration_microseconds{handler="lib_files",quantile="0.99"} 3302.087
+http_request_duration_microseconds_sum{handler="lib_files"} 17835.354
+http_request_duration_microseconds_count{handler="lib_files"} 8
+http_request_duration_microseconds{handler="list_alerts",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="list_alerts",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="list_alerts",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="list_alerts"} 0
+http_request_duration_microseconds_count{handler="list_alerts"} 0
+http_request_duration_microseconds{handler="list_silences",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="list_silences",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="list_silences",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="list_silences"} 0
+http_request_duration_microseconds_count{handler="list_silences"} 0
+http_request_duration_microseconds{handler="options",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="options",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="options",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="options"} 0
+http_request_duration_microseconds_count{handler="options"} 0
+http_request_duration_microseconds{handler="prometheus",quantile="0.5"} 3355.475
+http_request_duration_microseconds{handler="prometheus",quantile="0.9"} 3355.475
+http_request_duration_microseconds{handler="prometheus",quantile="0.99"} 3355.475
+http_request_duration_microseconds_sum{handler="prometheus"} 3355.475
+http_request_duration_microseconds_count{handler="prometheus"} 1
+http_request_duration_microseconds{handler="status",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="status",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="status",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="status"} 0
+http_request_duration_microseconds_count{handler="status"} 0
+# HELP http_request_size_bytes The HTTP request sizes in bytes.
+# TYPE http_request_size_bytes summary
+http_request_size_bytes{handler="add_alerts",quantile="0.5"} NaN
+http_request_size_bytes{handler="add_alerts",quantile="0.9"} NaN
+http_request_size_bytes{handler="add_alerts",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="add_alerts"} 0
+http_request_size_bytes_count{handler="add_alerts"} 0
+http_request_size_bytes{handler="add_silence",quantile="0.5"} NaN
+http_request_size_bytes{handler="add_silence",quantile="0.9"} NaN
+http_request_size_bytes{handler="add_silence",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="add_silence"} 0
+http_request_size_bytes_count{handler="add_silence"} 0
+http_request_size_bytes{handler="alert_groups",quantile="0.5"} 283
+http_request_size_bytes{handler="alert_groups",quantile="0.9"} 283
+http_request_size_bytes{handler="alert_groups",quantile="0.99"} 283
+http_request_size_bytes_sum{handler="alert_groups"} 283
+http_request_size_bytes_count{handler="alert_groups"} 1
+http_request_size_bytes{handler="app_files",quantile="0.5"} 310
+http_request_size_bytes{handler="app_files",quantile="0.9"} 333
+http_request_size_bytes{handler="app_files",quantile="0.99"} 333
+http_request_size_bytes_sum{handler="app_files"} 1606
+http_request_size_bytes_count{handler="app_files"} 5
+http_request_size_bytes{handler="del_silence",quantile="0.5"} NaN
+http_request_size_bytes{handler="del_silence",quantile="0.9"} NaN
+http_request_size_bytes{handler="del_silence",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="del_silence"} 0
+http_request_size_bytes_count{handler="del_silence"} 0
+http_request_size_bytes{handler="get_silence",quantile="0.5"} NaN
+http_request_size_bytes{handler="get_silence",quantile="0.9"} NaN
+http_request_size_bytes{handler="get_silence",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="get_silence"} 0
+http_request_size_bytes_count{handler="get_silence"} 0
+http_request_size_bytes{handler="index",quantile="0.5"} 336
+http_request_size_bytes{handler="index",quantile="0.9"} 336
+http_request_size_bytes{handler="index",quantile="0.99"} 336
+http_request_size_bytes_sum{handler="index"} 336
+http_request_size_bytes_count{handler="index"} 1
+http_request_size_bytes{handler="legacy_add_alerts",quantile="0.5"} NaN
+http_request_size_bytes{handler="legacy_add_alerts",quantile="0.9"} NaN
+http_request_size_bytes{handler="legacy_add_alerts",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="legacy_add_alerts"} 0
+http_request_size_bytes_count{handler="legacy_add_alerts"} 0
+http_request_size_bytes{handler="lib_files",quantile="0.5"} 303
+http_request_size_bytes{handler="lib_files",quantile="0.9"} 306
+http_request_size_bytes{handler="lib_files",quantile="0.99"} 306
+http_request_size_bytes_sum{handler="lib_files"} 2418
+http_request_size_bytes_count{handler="lib_files"} 8
+http_request_size_bytes{handler="list_alerts",quantile="0.5"} NaN
+http_request_size_bytes{handler="list_alerts",quantile="0.9"} NaN
+http_request_size_bytes{handler="list_alerts",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="list_alerts"} 0
+http_request_size_bytes_count{handler="list_alerts"} 0
+http_request_size_bytes{handler="list_silences",quantile="0.5"} NaN
+http_request_size_bytes{handler="list_silences",quantile="0.9"} NaN
+http_request_size_bytes{handler="list_silences",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="list_silences"} 0
+http_request_size_bytes_count{handler="list_silences"} 0
+http_request_size_bytes{handler="options",quantile="0.5"} NaN
+http_request_size_bytes{handler="options",quantile="0.9"} NaN
+http_request_size_bytes{handler="options",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="options"} 0
+http_request_size_bytes_count{handler="options"} 0
+http_request_size_bytes{handler="prometheus",quantile="0.5"} 297
+http_request_size_bytes{handler="prometheus",quantile="0.9"} 297
+http_request_size_bytes{handler="prometheus",quantile="0.99"} 297
+http_request_size_bytes_sum{handler="prometheus"} 297
+http_request_size_bytes_count{handler="prometheus"} 1
+http_request_size_bytes{handler="status",quantile="0.5"} NaN
+http_request_size_bytes{handler="status",quantile="0.9"} NaN
+http_request_size_bytes{handler="status",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="status"} 0
+http_request_size_bytes_count{handler="status"} 0
+# HELP http_requests_total Total number of HTTP requests made.
+# TYPE http_requests_total counter
+http_requests_total{code="200",handler="alert_groups",method="get"} 1
+http_requests_total{code="200",handler="app_files",method="get"} 2
+http_requests_total{code="200",handler="prometheus",method="get"} 1
+http_requests_total{code="304",handler="app_files",method="get"} 3
+http_requests_total{code="304",handler="index",method="get"} 1
+http_requests_total{code="304",handler="lib_files",method="get"} 8
+# HELP http_response_size_bytes The HTTP response sizes in bytes.
+# TYPE http_response_size_bytes summary
+http_response_size_bytes{handler="add_alerts",quantile="0.5"} NaN
+http_response_size_bytes{handler="add_alerts",quantile="0.9"} NaN
+http_response_size_bytes{handler="add_alerts",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="add_alerts"} 0
+http_response_size_bytes_count{handler="add_alerts"} 0
+http_response_size_bytes{handler="add_silence",quantile="0.5"} NaN
+http_response_size_bytes{handler="add_silence",quantile="0.9"} NaN
+http_response_size_bytes{handler="add_silence",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="add_silence"} 0
+http_response_size_bytes_count{handler="add_silence"} 0
+http_response_size_bytes{handler="alert_groups",quantile="0.5"} 30
+http_response_size_bytes{handler="alert_groups",quantile="0.9"} 30
+http_response_size_bytes{handler="alert_groups",quantile="0.99"} 30
+http_response_size_bytes_sum{handler="alert_groups"} 30
+http_response_size_bytes_count{handler="alert_groups"} 1
+http_response_size_bytes{handler="app_files",quantile="0.5"} 0
+http_response_size_bytes{handler="app_files",quantile="0.9"} 1742
+http_response_size_bytes{handler="app_files",quantile="0.99"} 1742
+http_response_size_bytes_sum{handler="app_files"} 3732
+http_response_size_bytes_count{handler="app_files"} 5
+http_response_size_bytes{handler="del_silence",quantile="0.5"} NaN
+http_response_size_bytes{handler="del_silence",quantile="0.9"} NaN
+http_response_size_bytes{handler="del_silence",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="del_silence"} 0
+http_response_size_bytes_count{handler="del_silence"} 0
+http_response_size_bytes{handler="get_silence",quantile="0.5"} NaN
+http_response_size_bytes{handler="get_silence",quantile="0.9"} NaN
+http_response_size_bytes{handler="get_silence",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="get_silence"} 0
+http_response_size_bytes_count{handler="get_silence"} 0
+http_response_size_bytes{handler="index",quantile="0.5"} 0
+http_response_size_bytes{handler="index",quantile="0.9"} 0
+http_response_size_bytes{handler="index",quantile="0.99"} 0
+http_response_size_bytes_sum{handler="index"} 0
+http_response_size_bytes_count{handler="index"} 1
+http_response_size_bytes{handler="legacy_add_alerts",quantile="0.5"} NaN
+http_response_size_bytes{handler="legacy_add_alerts",quantile="0.9"} NaN
+http_response_size_bytes{handler="legacy_add_alerts",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="legacy_add_alerts"} 0
+http_response_size_bytes_count{handler="legacy_add_alerts"} 0
+http_response_size_bytes{handler="lib_files",quantile="0.5"} 0
+http_response_size_bytes{handler="lib_files",quantile="0.9"} 0
+http_response_size_bytes{handler="lib_files",quantile="0.99"} 0
+http_response_size_bytes_sum{handler="lib_files"} 0
+http_response_size_bytes_count{handler="lib_files"} 8
+http_response_size_bytes{handler="list_alerts",quantile="0.5"} NaN
+http_response_size_bytes{handler="list_alerts",quantile="0.9"} NaN
+http_response_size_bytes{handler="list_alerts",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="list_alerts"} 0
+http_response_size_bytes_count{handler="list_alerts"} 0
+http_response_size_bytes{handler="list_silences",quantile="0.5"} NaN
+http_response_size_bytes{handler="list_silences",quantile="0.9"} NaN
+http_response_size_bytes{handler="list_silences",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="list_silences"} 0
+http_response_size_bytes_count{handler="list_silences"} 0
+http_response_size_bytes{handler="options",quantile="0.5"} NaN
+http_response_size_bytes{handler="options",quantile="0.9"} NaN
+http_response_size_bytes{handler="options",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="options"} 0
+http_response_size_bytes_count{handler="options"} 0
+http_response_size_bytes{handler="prometheus",quantile="0.5"} 2855
+http_response_size_bytes{handler="prometheus",quantile="0.9"} 2855
+http_response_size_bytes{handler="prometheus",quantile="0.99"} 2855
+http_response_size_bytes_sum{handler="prometheus"} 2855
+http_response_size_bytes_count{handler="prometheus"} 1
+http_response_size_bytes{handler="status",quantile="0.5"} NaN
+http_response_size_bytes{handler="status",quantile="0.9"} NaN
+http_response_size_bytes{handler="status",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="status"} 0
+http_response_size_bytes_count{handler="status"} 0

@@ -1,0 +1,738 @@
+# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 2.5744e-05
+go_gc_duration_seconds{quantile="0.25"} 3.0463e-05
+go_gc_duration_seconds{quantile="0.5"} 4.6241e-05
+go_gc_duration_seconds{quantile="0.75"} 6.9389e-05
+go_gc_duration_seconds{quantile="1"} 0.00108435
+go_gc_duration_seconds_sum 0.002268709
+go_gc_duration_seconds_count 17
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 201
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 4.712064e+07
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 8.3318152e+07
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.463964e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 521860
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 0.0007926511201272727
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 2.01728e+06
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 4.712064e+07
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 2.678784e+06
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 4.9094656e+07
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 109339
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 0
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 5.177344e+07
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.4937382664908285e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 265
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 631199
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 4800
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 333488
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 393216
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 5.4611872e+07
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 911964
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 1.703936e+06
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 1.703936e+06
+# HELP go_memstats_sys_bytes Number of bytes obtained from system.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 5.8280184e+07
+# HELP go_threads Number of OS threads created
+# TYPE go_threads gauge
+go_threads 10
+# HELP http_request_duration_microseconds The HTTP request latencies in microseconds.
+# TYPE http_request_duration_microseconds summary
+http_request_duration_microseconds{handler="alertmanagers",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="alertmanagers",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="alertmanagers",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="alertmanagers"} 0
+http_request_duration_microseconds_count{handler="alertmanagers"} 0
+http_request_duration_microseconds{handler="alerts",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="alerts",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="alerts",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="alerts"} 0
+http_request_duration_microseconds_count{handler="alerts"} 0
+http_request_duration_microseconds{handler="config",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="config",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="config",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="config"} 0
+http_request_duration_microseconds_count{handler="config"} 0
+http_request_duration_microseconds{handler="consoles",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="consoles",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="consoles",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="consoles"} 0
+http_request_duration_microseconds_count{handler="consoles"} 0
+http_request_duration_microseconds{handler="drop_series",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="drop_series",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="drop_series",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="drop_series"} 0
+http_request_duration_microseconds_count{handler="drop_series"} 0
+http_request_duration_microseconds{handler="federate",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="federate",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="federate",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="federate"} 0
+http_request_duration_microseconds_count{handler="federate"} 0
+http_request_duration_microseconds{handler="flags",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="flags",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="flags",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="flags"} 0
+http_request_duration_microseconds_count{handler="flags"} 0
+http_request_duration_microseconds{handler="graph",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="graph",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="graph",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="graph"} 0
+http_request_duration_microseconds_count{handler="graph"} 0
+http_request_duration_microseconds{handler="heap",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="heap",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="heap",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="heap"} 0
+http_request_duration_microseconds_count{handler="heap"} 0
+http_request_duration_microseconds{handler="label_values",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="label_values",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="label_values",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="label_values"} 0
+http_request_duration_microseconds_count{handler="label_values"} 0
+http_request_duration_microseconds{handler="options",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="options",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="options",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="options"} 0
+http_request_duration_microseconds_count{handler="options"} 0
+http_request_duration_microseconds{handler="prometheus",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="prometheus",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="prometheus",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="prometheus"} 0
+http_request_duration_microseconds_count{handler="prometheus"} 0
+http_request_duration_microseconds{handler="query",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="query",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="query",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="query"} 0
+http_request_duration_microseconds_count{handler="query"} 0
+http_request_duration_microseconds{handler="query_range",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="query_range",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="query_range",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="query_range"} 0
+http_request_duration_microseconds_count{handler="query_range"} 0
+http_request_duration_microseconds{handler="rules",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="rules",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="rules",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="rules"} 0
+http_request_duration_microseconds_count{handler="rules"} 0
+http_request_duration_microseconds{handler="series",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="series",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="series",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="series"} 0
+http_request_duration_microseconds_count{handler="series"} 0
+http_request_duration_microseconds{handler="static",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="static",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="static",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="static"} 0
+http_request_duration_microseconds_count{handler="static"} 0
+http_request_duration_microseconds{handler="status",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="status",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="status",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="status"} 0
+http_request_duration_microseconds_count{handler="status"} 0
+http_request_duration_microseconds{handler="targets",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="targets",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="targets",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="targets"} 0
+http_request_duration_microseconds_count{handler="targets"} 0
+http_request_duration_microseconds{handler="version",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="version",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="version",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="version"} 0
+http_request_duration_microseconds_count{handler="version"} 0
+# HELP http_request_size_bytes The HTTP request sizes in bytes.
+# TYPE http_request_size_bytes summary
+http_request_size_bytes{handler="alertmanagers",quantile="0.5"} NaN
+http_request_size_bytes{handler="alertmanagers",quantile="0.9"} NaN
+http_request_size_bytes{handler="alertmanagers",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="alertmanagers"} 0
+http_request_size_bytes_count{handler="alertmanagers"} 0
+http_request_size_bytes{handler="alerts",quantile="0.5"} NaN
+http_request_size_bytes{handler="alerts",quantile="0.9"} NaN
+http_request_size_bytes{handler="alerts",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="alerts"} 0
+http_request_size_bytes_count{handler="alerts"} 0
+http_request_size_bytes{handler="config",quantile="0.5"} NaN
+http_request_size_bytes{handler="config",quantile="0.9"} NaN
+http_request_size_bytes{handler="config",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="config"} 0
+http_request_size_bytes_count{handler="config"} 0
+http_request_size_bytes{handler="consoles",quantile="0.5"} NaN
+http_request_size_bytes{handler="consoles",quantile="0.9"} NaN
+http_request_size_bytes{handler="consoles",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="consoles"} 0
+http_request_size_bytes_count{handler="consoles"} 0
+http_request_size_bytes{handler="drop_series",quantile="0.5"} NaN
+http_request_size_bytes{handler="drop_series",quantile="0.9"} NaN
+http_request_size_bytes{handler="drop_series",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="drop_series"} 0
+http_request_size_bytes_count{handler="drop_series"} 0
+http_request_size_bytes{handler="federate",quantile="0.5"} NaN
+http_request_size_bytes{handler="federate",quantile="0.9"} NaN
+http_request_size_bytes{handler="federate",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="federate"} 0
+http_request_size_bytes_count{handler="federate"} 0
+http_request_size_bytes{handler="flags",quantile="0.5"} NaN
+http_request_size_bytes{handler="flags",quantile="0.9"} NaN
+http_request_size_bytes{handler="flags",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="flags"} 0
+http_request_size_bytes_count{handler="flags"} 0
+http_request_size_bytes{handler="graph",quantile="0.5"} NaN
+http_request_size_bytes{handler="graph",quantile="0.9"} NaN
+http_request_size_bytes{handler="graph",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="graph"} 0
+http_request_size_bytes_count{handler="graph"} 0
+http_request_size_bytes{handler="heap",quantile="0.5"} NaN
+http_request_size_bytes{handler="heap",quantile="0.9"} NaN
+http_request_size_bytes{handler="heap",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="heap"} 0
+http_request_size_bytes_count{handler="heap"} 0
+http_request_size_bytes{handler="label_values",quantile="0.5"} NaN
+http_request_size_bytes{handler="label_values",quantile="0.9"} NaN
+http_request_size_bytes{handler="label_values",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="label_values"} 0
+http_request_size_bytes_count{handler="label_values"} 0
+http_request_size_bytes{handler="options",quantile="0.5"} NaN
+http_request_size_bytes{handler="options",quantile="0.9"} NaN
+http_request_size_bytes{handler="options",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="options"} 0
+http_request_size_bytes_count{handler="options"} 0
+http_request_size_bytes{handler="prometheus",quantile="0.5"} NaN
+http_request_size_bytes{handler="prometheus",quantile="0.9"} NaN
+http_request_size_bytes{handler="prometheus",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="prometheus"} 0
+http_request_size_bytes_count{handler="prometheus"} 0
+http_request_size_bytes{handler="query",quantile="0.5"} NaN
+http_request_size_bytes{handler="query",quantile="0.9"} NaN
+http_request_size_bytes{handler="query",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="query"} 0
+http_request_size_bytes_count{handler="query"} 0
+http_request_size_bytes{handler="query_range",quantile="0.5"} NaN
+http_request_size_bytes{handler="query_range",quantile="0.9"} NaN
+http_request_size_bytes{handler="query_range",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="query_range"} 0
+http_request_size_bytes_count{handler="query_range"} 0
+http_request_size_bytes{handler="rules",quantile="0.5"} NaN
+http_request_size_bytes{handler="rules",quantile="0.9"} NaN
+http_request_size_bytes{handler="rules",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="rules"} 0
+http_request_size_bytes_count{handler="rules"} 0
+http_request_size_bytes{handler="series",quantile="0.5"} NaN
+http_request_size_bytes{handler="series",quantile="0.9"} NaN
+http_request_size_bytes{handler="series",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="series"} 0
+http_request_size_bytes_count{handler="series"} 0
+http_request_size_bytes{handler="static",quantile="0.5"} NaN
+http_request_size_bytes{handler="static",quantile="0.9"} NaN
+http_request_size_bytes{handler="static",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="static"} 0
+http_request_size_bytes_count{handler="static"} 0
+http_request_size_bytes{handler="status",quantile="0.5"} NaN
+http_request_size_bytes{handler="status",quantile="0.9"} NaN
+http_request_size_bytes{handler="status",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="status"} 0
+http_request_size_bytes_count{handler="status"} 0
+http_request_size_bytes{handler="targets",quantile="0.5"} NaN
+http_request_size_bytes{handler="targets",quantile="0.9"} NaN
+http_request_size_bytes{handler="targets",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="targets"} 0
+http_request_size_bytes_count{handler="targets"} 0
+http_request_size_bytes{handler="version",quantile="0.5"} NaN
+http_request_size_bytes{handler="version",quantile="0.9"} NaN
+http_request_size_bytes{handler="version",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="version"} 0
+http_request_size_bytes_count{handler="version"} 0
+# HELP http_response_size_bytes The HTTP response sizes in bytes.
+# TYPE http_response_size_bytes summary
+http_response_size_bytes{handler="alertmanagers",quantile="0.5"} NaN
+http_response_size_bytes{handler="alertmanagers",quantile="0.9"} NaN
+http_response_size_bytes{handler="alertmanagers",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="alertmanagers"} 0
+http_response_size_bytes_count{handler="alertmanagers"} 0
+http_response_size_bytes{handler="alerts",quantile="0.5"} NaN
+http_response_size_bytes{handler="alerts",quantile="0.9"} NaN
+http_response_size_bytes{handler="alerts",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="alerts"} 0
+http_response_size_bytes_count{handler="alerts"} 0
+http_response_size_bytes{handler="config",quantile="0.5"} NaN
+http_response_size_bytes{handler="config",quantile="0.9"} NaN
+http_response_size_bytes{handler="config",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="config"} 0
+http_response_size_bytes_count{handler="config"} 0
+http_response_size_bytes{handler="consoles",quantile="0.5"} NaN
+http_response_size_bytes{handler="consoles",quantile="0.9"} NaN
+http_response_size_bytes{handler="consoles",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="consoles"} 0
+http_response_size_bytes_count{handler="consoles"} 0
+http_response_size_bytes{handler="drop_series",quantile="0.5"} NaN
+http_response_size_bytes{handler="drop_series",quantile="0.9"} NaN
+http_response_size_bytes{handler="drop_series",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="drop_series"} 0
+http_response_size_bytes_count{handler="drop_series"} 0
+http_response_size_bytes{handler="federate",quantile="0.5"} NaN
+http_response_size_bytes{handler="federate",quantile="0.9"} NaN
+http_response_size_bytes{handler="federate",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="federate"} 0
+http_response_size_bytes_count{handler="federate"} 0
+http_response_size_bytes{handler="flags",quantile="0.5"} NaN
+http_response_size_bytes{handler="flags",quantile="0.9"} NaN
+http_response_size_bytes{handler="flags",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="flags"} 0
+http_response_size_bytes_count{handler="flags"} 0
+http_response_size_bytes{handler="graph",quantile="0.5"} NaN
+http_response_size_bytes{handler="graph",quantile="0.9"} NaN
+http_response_size_bytes{handler="graph",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="graph"} 0
+http_response_size_bytes_count{handler="graph"} 0
+http_response_size_bytes{handler="heap",quantile="0.5"} NaN
+http_response_size_bytes{handler="heap",quantile="0.9"} NaN
+http_response_size_bytes{handler="heap",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="heap"} 0
+http_response_size_bytes_count{handler="heap"} 0
+http_response_size_bytes{handler="label_values",quantile="0.5"} NaN
+http_response_size_bytes{handler="label_values",quantile="0.9"} NaN
+http_response_size_bytes{handler="label_values",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="label_values"} 0
+http_response_size_bytes_count{handler="label_values"} 0
+http_response_size_bytes{handler="options",quantile="0.5"} NaN
+http_response_size_bytes{handler="options",quantile="0.9"} NaN
+http_response_size_bytes{handler="options",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="options"} 0
+http_response_size_bytes_count{handler="options"} 0
+http_response_size_bytes{handler="prometheus",quantile="0.5"} NaN
+http_response_size_bytes{handler="prometheus",quantile="0.9"} NaN
+http_response_size_bytes{handler="prometheus",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="prometheus"} 0
+http_response_size_bytes_count{handler="prometheus"} 0
+http_response_size_bytes{handler="query",quantile="0.5"} NaN
+http_response_size_bytes{handler="query",quantile="0.9"} NaN
+http_response_size_bytes{handler="query",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="query"} 0
+http_response_size_bytes_count{handler="query"} 0
+http_response_size_bytes{handler="query_range",quantile="0.5"} NaN
+http_response_size_bytes{handler="query_range",quantile="0.9"} NaN
+http_response_size_bytes{handler="query_range",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="query_range"} 0
+http_response_size_bytes_count{handler="query_range"} 0
+http_response_size_bytes{handler="rules",quantile="0.5"} NaN
+http_response_size_bytes{handler="rules",quantile="0.9"} NaN
+http_response_size_bytes{handler="rules",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="rules"} 0
+http_response_size_bytes_count{handler="rules"} 0
+http_response_size_bytes{handler="series",quantile="0.5"} NaN
+http_response_size_bytes{handler="series",quantile="0.9"} NaN
+http_response_size_bytes{handler="series",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="series"} 0
+http_response_size_bytes_count{handler="series"} 0
+http_response_size_bytes{handler="static",quantile="0.5"} NaN
+http_response_size_bytes{handler="static",quantile="0.9"} NaN
+http_response_size_bytes{handler="static",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="static"} 0
+http_response_size_bytes_count{handler="static"} 0
+http_response_size_bytes{handler="status",quantile="0.5"} NaN
+http_response_size_bytes{handler="status",quantile="0.9"} NaN
+http_response_size_bytes{handler="status",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="status"} 0
+http_response_size_bytes_count{handler="status"} 0
+http_response_size_bytes{handler="targets",quantile="0.5"} NaN
+http_response_size_bytes{handler="targets",quantile="0.9"} NaN
+http_response_size_bytes{handler="targets",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="targets"} 0
+http_response_size_bytes_count{handler="targets"} 0
+http_response_size_bytes{handler="version",quantile="0.5"} NaN
+http_response_size_bytes{handler="version",quantile="0.9"} NaN
+http_response_size_bytes{handler="version",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="version"} 0
+http_response_size_bytes_count{handler="version"} 0
+# HELP prometheus_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which prometheus was built.
+# TYPE prometheus_build_info gauge
+prometheus_build_info{branch="master",goversion="go1.8.1",revision="4666df502c0e239ed4aa1d80abbbfb54f61b23c3",version="1.6.1"} 1
+# HELP prometheus_config_last_reload_success_timestamp_seconds Timestamp of the last successful configuration reload.
+# TYPE prometheus_config_last_reload_success_timestamp_seconds gauge
+prometheus_config_last_reload_success_timestamp_seconds 1.49373825e+09
+# HELP prometheus_config_last_reload_successful Whether the last configuration reload attempt was successful.
+# TYPE prometheus_config_last_reload_successful gauge
+prometheus_config_last_reload_successful 1
+# HELP prometheus_engine_queries The current number of queries being executed or waiting.
+# TYPE prometheus_engine_queries gauge
+prometheus_engine_queries 0
+# HELP prometheus_engine_queries_concurrent_max The max number of concurrent queries.
+# TYPE prometheus_engine_queries_concurrent_max gauge
+prometheus_engine_queries_concurrent_max 20
+# HELP prometheus_engine_query_duration_seconds Query timings
+# TYPE prometheus_engine_query_duration_seconds summary
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.5"} 2.8572e-05
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.9"} 3.5893e-05
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.99"} 3.5893e-05
+prometheus_engine_query_duration_seconds_sum{slice="inner_eval"} 0.000145712
+prometheus_engine_query_duration_seconds_count{slice="inner_eval"} 6
+prometheus_engine_query_duration_seconds{slice="prepare_time",quantile="0.5"} 0.000983216
+prometheus_engine_query_duration_seconds{slice="prepare_time",quantile="0.9"} 0.001008171
+prometheus_engine_query_duration_seconds{slice="prepare_time",quantile="0.99"} 0.001008171
+prometheus_engine_query_duration_seconds_sum{slice="prepare_time"} 0.004674151999999999
+prometheus_engine_query_duration_seconds_count{slice="prepare_time"} 6
+prometheus_engine_query_duration_seconds{slice="result_append",quantile="0.5"} NaN
+prometheus_engine_query_duration_seconds{slice="result_append",quantile="0.9"} NaN
+prometheus_engine_query_duration_seconds{slice="result_append",quantile="0.99"} NaN
+prometheus_engine_query_duration_seconds_sum{slice="result_append"} 0
+prometheus_engine_query_duration_seconds_count{slice="result_append"} 0
+prometheus_engine_query_duration_seconds{slice="result_sort",quantile="0.5"} NaN
+prometheus_engine_query_duration_seconds{slice="result_sort",quantile="0.9"} NaN
+prometheus_engine_query_duration_seconds{slice="result_sort",quantile="0.99"} NaN
+prometheus_engine_query_duration_seconds_sum{slice="result_sort"} 0
+prometheus_engine_query_duration_seconds_count{slice="result_sort"} 0
+# HELP prometheus_evaluator_duration_seconds The duration of rule group evaluations.
+# TYPE prometheus_evaluator_duration_seconds summary
+prometheus_evaluator_duration_seconds{quantile="0.01"} 0.003890112
+prometheus_evaluator_duration_seconds{quantile="0.05"} 0.003890112
+prometheus_evaluator_duration_seconds{quantile="0.5"} 0.003890112
+prometheus_evaluator_duration_seconds{quantile="0.9"} 0.003890112
+prometheus_evaluator_duration_seconds{quantile="0.99"} 0.003890112
+prometheus_evaluator_duration_seconds_sum 0.003890112
+prometheus_evaluator_duration_seconds_count 1
+# HELP prometheus_evaluator_iterations_missed_total The total number of rule group evaluations missed due to slow rule group evaluation.
+# TYPE prometheus_evaluator_iterations_missed_total counter
+prometheus_evaluator_iterations_missed_total 0
+# HELP prometheus_evaluator_iterations_skipped_total The total number of rule group evaluations skipped due to throttled metric storage.
+# TYPE prometheus_evaluator_iterations_skipped_total counter
+prometheus_evaluator_iterations_skipped_total 0
+# HELP prometheus_evaluator_iterations_total The total number of scheduled rule group evaluations, whether executed, missed or skipped.
+# TYPE prometheus_evaluator_iterations_total counter
+prometheus_evaluator_iterations_total 1
+# HELP prometheus_local_storage_checkpoint_duration_seconds The duration in seconds taken for checkpointing open chunks and chunks yet to be persisted
+# TYPE prometheus_local_storage_checkpoint_duration_seconds summary
+prometheus_local_storage_checkpoint_duration_seconds_sum 0
+prometheus_local_storage_checkpoint_duration_seconds_count 0
+# HELP prometheus_local_storage_checkpoint_last_duration_seconds The duration in seconds it took to last checkpoint open chunks and chunks yet to be persisted.
+# TYPE prometheus_local_storage_checkpoint_last_duration_seconds gauge
+prometheus_local_storage_checkpoint_last_duration_seconds 0
+# HELP prometheus_local_storage_checkpoint_last_size_bytes The size of the last checkpoint of open chunks and chunks yet to be persisted
+# TYPE prometheus_local_storage_checkpoint_last_size_bytes gauge
+prometheus_local_storage_checkpoint_last_size_bytes 0
+# HELP prometheus_local_storage_checkpoint_series_chunks_written The number of chunk written per series while checkpointing open chunks and chunks yet to be persisted.
+# TYPE prometheus_local_storage_checkpoint_series_chunks_written summary
+prometheus_local_storage_checkpoint_series_chunks_written_sum 0
+prometheus_local_storage_checkpoint_series_chunks_written_count 0
+# HELP prometheus_local_storage_checkpointing 1 if the storage is checkpointing, 0 otherwise.
+# TYPE prometheus_local_storage_checkpointing gauge
+prometheus_local_storage_checkpointing 0
+# HELP prometheus_local_storage_chunk_ops_total The total number of chunk operations by their type.
+# TYPE prometheus_local_storage_chunk_ops_total counter
+prometheus_local_storage_chunk_ops_total{type="create"} 4387
+prometheus_local_storage_chunk_ops_total{type="persist"} 0
+prometheus_local_storage_chunk_ops_total{type="pin"} 3
+prometheus_local_storage_chunk_ops_total{type="unpin"} 3
+# HELP prometheus_local_storage_chunks_to_persist The current number of chunks waiting for persistence.
+# TYPE prometheus_local_storage_chunks_to_persist gauge
+prometheus_local_storage_chunks_to_persist 0
+# HELP prometheus_local_storage_fingerprint_mappings_total The total number of fingerprints being mapped to avoid collisions.
+# TYPE prometheus_local_storage_fingerprint_mappings_total counter
+prometheus_local_storage_fingerprint_mappings_total 0
+# HELP prometheus_local_storage_inconsistencies_total A counter incremented each time an inconsistency in the local storage is detected. If this is greater zero, restart the server as soon as possible.
+# TYPE prometheus_local_storage_inconsistencies_total counter
+prometheus_local_storage_inconsistencies_total 0
+# HELP prometheus_local_storage_indexing_batch_duration_seconds Quantiles for batch indexing duration in seconds.
+# TYPE prometheus_local_storage_indexing_batch_duration_seconds summary
+prometheus_local_storage_indexing_batch_duration_seconds{quantile="0.5"} 0.001075629
+prometheus_local_storage_indexing_batch_duration_seconds{quantile="0.9"} 0.00149092
+prometheus_local_storage_indexing_batch_duration_seconds{quantile="0.99"} 0.001517097
+prometheus_local_storage_indexing_batch_duration_seconds_sum 0.014595816000000001
+prometheus_local_storage_indexing_batch_duration_seconds_count 13
+# HELP prometheus_local_storage_indexing_batch_sizes Quantiles for indexing batch sizes (number of metrics per batch).
+# TYPE prometheus_local_storage_indexing_batch_sizes summary
+prometheus_local_storage_indexing_batch_sizes{quantile="0.5"} 342
+prometheus_local_storage_indexing_batch_sizes{quantile="0.9"} 354
+prometheus_local_storage_indexing_batch_sizes{quantile="0.99"} 675
+prometheus_local_storage_indexing_batch_sizes_sum 4387
+prometheus_local_storage_indexing_batch_sizes_count 13
+# HELP prometheus_local_storage_indexing_queue_capacity The capacity of the indexing queue.
+# TYPE prometheus_local_storage_indexing_queue_capacity gauge
+prometheus_local_storage_indexing_queue_capacity 262144
+# HELP prometheus_local_storage_indexing_queue_length The number of metrics waiting to be indexed.
+# TYPE prometheus_local_storage_indexing_queue_length gauge
+prometheus_local_storage_indexing_queue_length 0
+# HELP prometheus_local_storage_ingested_samples_total The total number of samples ingested.
+# TYPE prometheus_local_storage_ingested_samples_total counter
+prometheus_local_storage_ingested_samples_total 4387
+# HELP prometheus_local_storage_maintain_series_duration_seconds The duration in seconds it took to perform maintenance on a series.
+# TYPE prometheus_local_storage_maintain_series_duration_seconds summary
+prometheus_local_storage_maintain_series_duration_seconds{location="archived",quantile="0.5"} NaN
+prometheus_local_storage_maintain_series_duration_seconds{location="archived",quantile="0.9"} NaN
+prometheus_local_storage_maintain_series_duration_seconds{location="archived",quantile="0.99"} NaN
+prometheus_local_storage_maintain_series_duration_seconds_sum{location="archived"} 0
+prometheus_local_storage_maintain_series_duration_seconds_count{location="archived"} 0
+prometheus_local_storage_maintain_series_duration_seconds{location="memory",quantile="0.5"} 5.7277e-05
+prometheus_local_storage_maintain_series_duration_seconds{location="memory",quantile="0.9"} 5.7277e-05
+prometheus_local_storage_maintain_series_duration_seconds{location="memory",quantile="0.99"} 5.7277e-05
+prometheus_local_storage_maintain_series_duration_seconds_sum{location="memory"} 0.000121077
+prometheus_local_storage_maintain_series_duration_seconds_count{location="memory"} 2
+# HELP prometheus_local_storage_memory_chunkdescs The current number of chunk descriptors in memory.
+# TYPE prometheus_local_storage_memory_chunkdescs gauge
+prometheus_local_storage_memory_chunkdescs 4387
+# HELP prometheus_local_storage_memory_chunks The current number of chunks in memory. The number does not include cloned chunks (i.e. chunks without a descriptor).
+# TYPE prometheus_local_storage_memory_chunks gauge
+prometheus_local_storage_memory_chunks 4387
+# HELP prometheus_local_storage_memory_dirty_series The current number of series that would require a disk seek during crash recovery.
+# TYPE prometheus_local_storage_memory_dirty_series gauge
+prometheus_local_storage_memory_dirty_series 0
+# HELP prometheus_local_storage_memory_series The current number of series in memory.
+# TYPE prometheus_local_storage_memory_series gauge
+prometheus_local_storage_memory_series 4387
+# HELP prometheus_local_storage_non_existent_series_matches_total How often a non-existent series was referred to during label matching or chunk preloading. This is an indication of outdated label indexes.
+# TYPE prometheus_local_storage_non_existent_series_matches_total counter
+prometheus_local_storage_non_existent_series_matches_total 0
+# HELP prometheus_local_storage_open_head_chunks The current number of open head chunks.
+# TYPE prometheus_local_storage_open_head_chunks gauge
+prometheus_local_storage_open_head_chunks 4387
+# HELP prometheus_local_storage_out_of_order_samples_total The total number of samples that were discarded because their timestamps were at or before the last received sample for a series.
+# TYPE prometheus_local_storage_out_of_order_samples_total counter
+prometheus_local_storage_out_of_order_samples_total{reason="multiple_values_for_timestamp"} 0
+prometheus_local_storage_out_of_order_samples_total{reason="timestamp_out_of_order"} 0
+# HELP prometheus_local_storage_persist_errors_total The total number of errors while writing to the persistence layer.
+# TYPE prometheus_local_storage_persist_errors_total counter
+prometheus_local_storage_persist_errors_total 0
+# HELP prometheus_local_storage_persistence_urgency_score A score of urgency to persist chunks, 0 is least urgent, 1 most.
+# TYPE prometheus_local_storage_persistence_urgency_score gauge
+prometheus_local_storage_persistence_urgency_score 0
+# HELP prometheus_local_storage_queued_chunks_to_persist_total The total number of chunks queued for persistence.
+# TYPE prometheus_local_storage_queued_chunks_to_persist_total counter
+prometheus_local_storage_queued_chunks_to_persist_total 0
+# HELP prometheus_local_storage_rushed_mode 1 if the storage is in rushed mode, 0 otherwise.
+# TYPE prometheus_local_storage_rushed_mode gauge
+prometheus_local_storage_rushed_mode 0
+# HELP prometheus_local_storage_series_chunks_persisted The number of chunks persisted per series.
+# TYPE prometheus_local_storage_series_chunks_persisted histogram
+prometheus_local_storage_series_chunks_persisted_bucket{le="1"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="2"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="4"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="8"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="16"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="32"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="64"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="128"} 0
+prometheus_local_storage_series_chunks_persisted_bucket{le="+Inf"} 0
+prometheus_local_storage_series_chunks_persisted_sum 0
+prometheus_local_storage_series_chunks_persisted_count 0
+# HELP prometheus_local_storage_series_ops_total The total number of series operations by their type.
+# TYPE prometheus_local_storage_series_ops_total counter
+prometheus_local_storage_series_ops_total{type="archive"} 0
+prometheus_local_storage_series_ops_total{type="create"} 4387
+prometheus_local_storage_series_ops_total{type="maintenance_in_archive"} 0
+prometheus_local_storage_series_ops_total{type="maintenance_in_memory"} 2
+prometheus_local_storage_series_ops_total{type="purge_from_archive"} 0
+prometheus_local_storage_series_ops_total{type="purge_from_memory"} 0
+prometheus_local_storage_series_ops_total{type="purge_on_request"} 0
+prometheus_local_storage_series_ops_total{type="quarantine_completed"} 0
+prometheus_local_storage_series_ops_total{type="quarantine_dropped"} 0
+prometheus_local_storage_series_ops_total{type="quarantine_failed"} 0
+prometheus_local_storage_series_ops_total{type="unarchive"} 0
+# HELP prometheus_local_storage_started_dirty Whether the local storage was found to be dirty (and crash recovery occurred) during Prometheus startup.
+# TYPE prometheus_local_storage_started_dirty gauge
+prometheus_local_storage_started_dirty 0
+# HELP prometheus_local_storage_target_heap_size_bytes The configured target heap size in bytes.
+# TYPE prometheus_local_storage_target_heap_size_bytes gauge
+prometheus_local_storage_target_heap_size_bytes 2.147483648e+09
+# HELP prometheus_notifications_dropped_total Total number of alerts dropped due to errors when sending to Alertmanager.
+# TYPE prometheus_notifications_dropped_total counter
+prometheus_notifications_dropped_total 3
+# HELP prometheus_notifications_errors_total Total number of errors sending alert notifications.
+# TYPE prometheus_notifications_errors_total counter
+prometheus_notifications_errors_total{alertmanager="http://localhost:9093/api/v1/alerts"} 2
+# HELP prometheus_notifications_latency_seconds Latency quantiles for sending alert notifications (not including dropped notifications).
+# TYPE prometheus_notifications_latency_seconds summary
+prometheus_notifications_latency_seconds{alertmanager="http://localhost:9093/api/v1/alerts",quantile="0.5"} 0.001680426
+prometheus_notifications_latency_seconds{alertmanager="http://localhost:9093/api/v1/alerts",quantile="0.9"} 0.001680426
+prometheus_notifications_latency_seconds{alertmanager="http://localhost:9093/api/v1/alerts",quantile="0.99"} 0.001680426
+prometheus_notifications_latency_seconds_sum{alertmanager="http://localhost:9093/api/v1/alerts"} 0.005442115
+prometheus_notifications_latency_seconds_count{alertmanager="http://localhost:9093/api/v1/alerts"} 2
+# HELP prometheus_notifications_queue_capacity The capacity of the alert notifications queue.
+# TYPE prometheus_notifications_queue_capacity gauge
+prometheus_notifications_queue_capacity 10000
+# HELP prometheus_notifications_queue_length The number of alert notifications in the queue.
+# TYPE prometheus_notifications_queue_length gauge
+prometheus_notifications_queue_length 0
+# HELP prometheus_notifications_sent_total Total number of alerts successfully sent.
+# TYPE prometheus_notifications_sent_total counter
+prometheus_notifications_sent_total{alertmanager="http://localhost:9093/api/v1/alerts"} 3
+# HELP prometheus_rule_evaluation_duration_seconds The duration for a rule to execute.
+# TYPE prometheus_rule_evaluation_duration_seconds summary
+prometheus_rule_evaluation_duration_seconds{rule_type="alerting",quantile="0.5"} 0.003350721
+prometheus_rule_evaluation_duration_seconds{rule_type="alerting",quantile="0.9"} 0.003591524
+prometheus_rule_evaluation_duration_seconds{rule_type="alerting",quantile="0.99"} 0.003591524
+prometheus_rule_evaluation_duration_seconds_sum{rule_type="alerting"} 0.010810006
+prometheus_rule_evaluation_duration_seconds_count{rule_type="alerting"} 3
+prometheus_rule_evaluation_duration_seconds{rule_type="recording",quantile="0.5"} 0.001751376
+prometheus_rule_evaluation_duration_seconds{rule_type="recording",quantile="0.9"} 0.002001862
+prometheus_rule_evaluation_duration_seconds{rule_type="recording",quantile="0.99"} 0.002001862
+prometheus_rule_evaluation_duration_seconds_sum{rule_type="recording"} 0.006058243
+prometheus_rule_evaluation_duration_seconds_count{rule_type="recording"} 3
+# HELP prometheus_rule_evaluation_failures_total The total number of rule evaluation failures.
+# TYPE prometheus_rule_evaluation_failures_total counter
+prometheus_rule_evaluation_failures_total{rule_type="alerting"} 0
+prometheus_rule_evaluation_failures_total{rule_type="recording"} 0
+# HELP prometheus_sd_azure_refresh_duration_seconds The duration of a Azure-SD refresh in seconds.
+# TYPE prometheus_sd_azure_refresh_duration_seconds summary
+prometheus_sd_azure_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_azure_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_azure_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_azure_refresh_duration_seconds_sum 0
+prometheus_sd_azure_refresh_duration_seconds_count 0
+# HELP prometheus_sd_azure_refresh_failures_total Number of Azure-SD refresh failures.
+# TYPE prometheus_sd_azure_refresh_failures_total counter
+prometheus_sd_azure_refresh_failures_total 0
+# HELP prometheus_sd_consul_rpc_duration_seconds The duration of a Consul RPC call in seconds.
+# TYPE prometheus_sd_consul_rpc_duration_seconds summary
+prometheus_sd_consul_rpc_duration_seconds{call="service",endpoint="catalog",quantile="0.5"} 0.011244129
+prometheus_sd_consul_rpc_duration_seconds{call="service",endpoint="catalog",quantile="0.9"} 0.012444029
+prometheus_sd_consul_rpc_duration_seconds{call="service",endpoint="catalog",quantile="0.99"} 0.106702185
+prometheus_sd_consul_rpc_duration_seconds_sum{call="service",endpoint="catalog"} 0.57252423
+prometheus_sd_consul_rpc_duration_seconds_count{call="service",endpoint="catalog"} 27
+prometheus_sd_consul_rpc_duration_seconds{call="services",endpoint="catalog",quantile="0.5"} 0.008078545
+prometheus_sd_consul_rpc_duration_seconds{call="services",endpoint="catalog",quantile="0.9"} 0.010441035
+prometheus_sd_consul_rpc_duration_seconds{call="services",endpoint="catalog",quantile="0.99"} 0.020566312
+prometheus_sd_consul_rpc_duration_seconds_sum{call="services",endpoint="catalog"} 0.20205583599999996
+prometheus_sd_consul_rpc_duration_seconds_count{call="services",endpoint="catalog"} 14
+# HELP prometheus_sd_consul_rpc_failures_total The number of Consul RPC call failures.
+# TYPE prometheus_sd_consul_rpc_failures_total counter
+prometheus_sd_consul_rpc_failures_total 12
+# HELP prometheus_sd_dns_lookup_failures_total The number of DNS-SD lookup failures.
+# TYPE prometheus_sd_dns_lookup_failures_total counter
+prometheus_sd_dns_lookup_failures_total 0
+# HELP prometheus_sd_dns_lookups_total The number of DNS-SD lookups.
+# TYPE prometheus_sd_dns_lookups_total counter
+prometheus_sd_dns_lookups_total 0
+# HELP prometheus_sd_ec2_refresh_duration_seconds The duration of a EC2-SD refresh in seconds.
+# TYPE prometheus_sd_ec2_refresh_duration_seconds summary
+prometheus_sd_ec2_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_ec2_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_ec2_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_ec2_refresh_duration_seconds_sum 0
+prometheus_sd_ec2_refresh_duration_seconds_count 0
+# HELP prometheus_sd_ec2_refresh_failures_total The number of EC2-SD scrape failures.
+# TYPE prometheus_sd_ec2_refresh_failures_total counter
+prometheus_sd_ec2_refresh_failures_total 0
+# HELP prometheus_sd_file_read_errors_total The number of File-SD read errors.
+# TYPE prometheus_sd_file_read_errors_total counter
+prometheus_sd_file_read_errors_total 0
+# HELP prometheus_sd_file_scan_duration_seconds The duration of the File-SD scan in seconds.
+# TYPE prometheus_sd_file_scan_duration_seconds summary
+prometheus_sd_file_scan_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_file_scan_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_file_scan_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_file_scan_duration_seconds_sum 0
+prometheus_sd_file_scan_duration_seconds_count 0
+# HELP prometheus_sd_gce_refresh_duration The duration of a GCE-SD refresh in seconds.
+# TYPE prometheus_sd_gce_refresh_duration summary
+prometheus_sd_gce_refresh_duration{quantile="0.5"} NaN
+prometheus_sd_gce_refresh_duration{quantile="0.9"} NaN
+prometheus_sd_gce_refresh_duration{quantile="0.99"} NaN
+prometheus_sd_gce_refresh_duration_sum 0
+prometheus_sd_gce_refresh_duration_count 0
+# HELP prometheus_sd_gce_refresh_failures_total The number of GCE-SD refresh failures.
+# TYPE prometheus_sd_gce_refresh_failures_total counter
+prometheus_sd_gce_refresh_failures_total 0
+# HELP prometheus_sd_kubernetes_events_total The number of Kubernetes events handled.
+# TYPE prometheus_sd_kubernetes_events_total counter
+prometheus_sd_kubernetes_events_total{event="add",role="endpoints"} 0
+prometheus_sd_kubernetes_events_total{event="add",role="node"} 0
+prometheus_sd_kubernetes_events_total{event="add",role="pod"} 0
+prometheus_sd_kubernetes_events_total{event="add",role="service"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="endpoints"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="node"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="pod"} 0
+prometheus_sd_kubernetes_events_total{event="delete",role="service"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="endpoints"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="node"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="pod"} 0
+prometheus_sd_kubernetes_events_total{event="update",role="service"} 0
+# HELP prometheus_sd_marathon_refresh_duration_seconds The duration of a Marathon-SD refresh in seconds.
+# TYPE prometheus_sd_marathon_refresh_duration_seconds summary
+prometheus_sd_marathon_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_marathon_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_marathon_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_marathon_refresh_duration_seconds_sum 0
+prometheus_sd_marathon_refresh_duration_seconds_count 0
+# HELP prometheus_sd_marathon_refresh_failures_total The number of Marathon-SD refresh failures.
+# TYPE prometheus_sd_marathon_refresh_failures_total counter
+prometheus_sd_marathon_refresh_failures_total 0
+# HELP prometheus_sd_triton_refresh_duration_seconds The duration of a Triton-SD refresh in seconds.
+# TYPE prometheus_sd_triton_refresh_duration_seconds summary
+prometheus_sd_triton_refresh_duration_seconds{quantile="0.5"} NaN
+prometheus_sd_triton_refresh_duration_seconds{quantile="0.9"} NaN
+prometheus_sd_triton_refresh_duration_seconds{quantile="0.99"} NaN
+prometheus_sd_triton_refresh_duration_seconds_sum 0
+prometheus_sd_triton_refresh_duration_seconds_count 0
+# HELP prometheus_sd_triton_refresh_failures_total The number of Triton-SD scrape failures.
+# TYPE prometheus_sd_triton_refresh_failures_total counter
+prometheus_sd_triton_refresh_failures_total 0
+# HELP prometheus_target_scrape_pool_sync_total Total number of syncs that were executed on a scrape pool.
+# TYPE prometheus_target_scrape_pool_sync_total counter
+prometheus_target_scrape_pool_sync_total{scrape_job="prometheus"} 1
+# HELP prometheus_target_scrapes_exceeded_sample_limit_total Total number of scrapes that hit the sample limit and were rejected.
+# TYPE prometheus_target_scrapes_exceeded_sample_limit_total counter
+prometheus_target_scrapes_exceeded_sample_limit_total 0
+# HELP prometheus_target_skipped_scrapes_total Total number of scrapes that were skipped because the metric storage was throttled.
+# TYPE prometheus_target_skipped_scrapes_total counter
+prometheus_target_skipped_scrapes_total 0
+# HELP prometheus_target_sync_length_seconds Actual interval to sync the scrape pool.
+# TYPE prometheus_target_sync_length_seconds summary
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.01"} 0.002444829
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.05"} 0.002444829
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.5"} 0.002444829
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.9"} 0.002444829
+prometheus_target_sync_length_seconds{scrape_job="prometheus",quantile="0.99"} 0.002444829
+prometheus_target_sync_length_seconds_sum{scrape_job="prometheus"} 0.002444829
+prometheus_target_sync_length_seconds_count{scrape_job="prometheus"} 1
+# HELP prometheus_treecache_watcher_goroutines The current number of watcher goroutines.
+# TYPE prometheus_treecache_watcher_goroutines gauge
+prometheus_treecache_watcher_goroutines 0
+# HELP prometheus_treecache_zookeeper_failures_total The total number of ZooKeeper failures.
+# TYPE prometheus_treecache_zookeeper_failures_total counter
+prometheus_treecache_zookeeper_failures_total 0

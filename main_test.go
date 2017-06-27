@@ -47,4 +47,9 @@ func TestParseRawMetric(t *testing.T) {
 	assert.Equal(t, "node_filesystem_size", metric)
 	assert.Equal(t, `node_filesystem_size{device="/dev/mapper/root",fstype="ext4",mountpoint="/rootfs"}`, raw.Element)
 	assert.Equal(t, 5.270837248e+10, raw.Value)
+
+	metric, raw = parseRawMetric(`elasticsearch_filesystem_data_available_bytes{cluster="prod",host="10.10.1.1",mount="/srv/elasticsearch/data1 (/dev/sdb)",name="prod-1",path="/srv/elasticsearch/data1/nodes/0"} 2.83319881216e+11`)
+	assert.Equal(t, "elasticsearch_filesystem_data_available_bytes", metric)
+	assert.Equal(t, `elasticsearch_filesystem_data_available_bytes{cluster="prod",host="10.10.1.1",mount="/srv/elasticsearch/data1 (/dev/sdb)",name="prod-1",path="/srv/elasticsearch/data1/nodes/0"}`, raw.Element)
+	assert.Equal(t, 2.83319881216e+11, raw.Value)
 }

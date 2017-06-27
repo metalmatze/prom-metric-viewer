@@ -303,17 +303,22 @@ func parseRawMetric(line string) (string, RawMetric) {
 	spaces := strings.Split(line, " ")
 	name := parseName(line)
 
-	if spaces[1] == "NaN" {
-		return name, RawMetric{Element: spaces[0], Value: 0}
+	// value is the last element separated by a space
+	rawValue := spaces[len(spaces)-1]
+	// element is all elements except the last, which is the value
+	rawElement := strings.Join(spaces[:len(spaces)-1], " ")
+
+	if rawValue == "NaN" {
+		return name, RawMetric{Element: rawElement, Value: 0}
 	}
 
-	value, err := strconv.ParseFloat(spaces[1], 64)
+	value, err := strconv.ParseFloat(rawValue, 64)
 	if err != nil {
-		log.Println("failed to parse value from metric to float64", spaces[1])
-		return "", RawMetric{Element: spaces[0], Value: 0}
+		log.Println("failed to parse value from metric to float64", rawValue)
+		return "", RawMetric{Element: rawElement, Value: 0}
 	}
 
-	return name, RawMetric{Element: spaces[0], Value: value}
+	return name, RawMetric{Element: rawElement, Value: value}
 }
 
 func parseName(line string) string {

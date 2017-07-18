@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        // WARNING: DO NOT set the <base href> like this in production!
+        // Details: https://webdev.dartlang.org/angular/guide/router
+        (function () {
+            var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/);
+            document.write('<base href="' + (m ? m[0] : '/') + '" />');
+        }());
+    </script>
+
+    <title>prom-metric-viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script defer src="main.dart" type="application/dart"></script>
+    <script defer src="packages/browser/dart.js"></script>
+</head>
+
+<body>
+<prom-metric-viewer>Loading...</prom-metric-viewer>
+</body>
+
+</html>

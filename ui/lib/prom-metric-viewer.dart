@@ -1,15 +1,34 @@
+import 'dart:async';
+
 import 'package:angular2/angular2.dart';
+
+import 'metric.dart';
+import 'metric_service.dart';
 
 @Component(
   selector: 'prom-metric-viewer',
-  template: '<h1>Hello {{name}}</h1>',
+  template: '<ul><li *ngFor="let metric of metrics">{{metric.name}}</li></ul>',
+  directives: const [CORE_DIRECTIVES],
+  providers: const [MetricService],
 )
 class PromMetricViewer implements OnInit {
-  String name = "Angular";
+  final MetricService _metricService;
+
+  List<Metric> metrics = [];
+  String errorMessage;
+
+  PromMetricViewer(this._metricService);
 
   @override
-  ngOnInit() {
-    this.name = "Prometheus";
-    print('running PromMetricViewer');
+  ngOnInit() async {
+    getMetrics();
+  }
+
+  Future<Null> getMetrics() async {
+    try {
+      metrics = await _metricService.getMetrics();
+    } catch (e) {
+      errorMessage = e.toString();
+    }
   }
 }

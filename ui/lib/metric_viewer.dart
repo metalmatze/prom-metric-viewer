@@ -6,18 +6,19 @@ import 'metric.dart';
 import 'metric_service.dart';
 
 @Component(
-  selector: 'prom-metric-viewer',
-  template: '<ul><li *ngFor="let metric of metrics">{{metric.name}}</li></ul>',
-  directives: const [CORE_DIRECTIVES],
+  selector: 'metric-viewer',
+  templateUrl: 'metric_viewer.html',
+  directives: const [COMMON_DIRECTIVES],
   providers: const [MetricService],
 )
-class PromMetricViewer implements OnInit {
+class MetricViewer implements OnInit {
   final MetricService _metricService;
 
   List<Metric> metrics = [];
   String errorMessage;
+  String filterQuery;
 
-  PromMetricViewer(this._metricService);
+  MetricViewer(this._metricService);
 
   @override
   ngOnInit() async {

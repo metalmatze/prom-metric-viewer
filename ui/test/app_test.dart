@@ -5,12 +5,12 @@ import 'package:angular2/angular2.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:test/test.dart';
 
-import 'package:angular_app/prom-metric-viewer.dart';
+import 'package:angular_app/metric_viewer.dart';
 
 @AngularEntrypoint()
 void main() {
-  final testBed = new NgTestBed<PromMetricViewer>();
-  NgTestFixture<PromMetricViewer> fixture;
+  final testBed = new NgTestBed<MetricViewer>();
+  NgTestFixture<MetricViewer> fixture;
 
   setUp(() async {
     fixture = await testBed.create();

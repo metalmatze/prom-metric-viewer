@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <h3>prom-metric-viewer</h3>
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search metric names" [(ngModel)]="filterQuery">
+    </div>
+
+    <p>
+        We've found {{metrics.length}} metrics! -
+        <!--<a :href="`/metrics.md?contains=${filterQuery}`" target="_blank">Markdown Table</a>-->
+    </p>
+
+    <div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage != null">{{errorMessage}}</div>
+
+        <table class="table table-hover table-condensed" *ngIf="errorMessage == null">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Help</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let metric of metrics">
+                <td>hi</td>
+                <td>{{metric.name}}</td>
+                <td>{{metric.type}}</td>
+                <td>{{metric.cardinality}}</td>
+                <td>{{metric.help}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

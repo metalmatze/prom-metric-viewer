@@ -192,7 +192,7 @@ func printWeb(metrics []Metric) error {
 		contains := r.URL.Query().Get("contains")
 		if contains != "" {
 			for _, metric := range metrics {
-				if strings.Contains(metric.Name, contains) {
+				if strings.Contains(strings.ToLower(metric.Name), strings.ToLower(contains)) {
 					filtered = append(filtered, metric)
 				}
 			}

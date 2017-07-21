@@ -2,12 +2,12 @@
     <h3>prom-metric-viewer</h3>
 
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search metric names" [(ngModel)]="filterQuery" (keyup)="filter($event)" autofocus>
+        <input type="text" class="form-control" placeholder="Search metric names" [(ngModel)]="filterQuery" (keyup)="filter()" autofocus>
     </div>
 
     <p>
         We've found {{sortedMetrics.length}} metrics! -
-        <!--<a :href="`/metrics.md?contains=${filterQuery}`" target="_blank">Markdown Table</a>-->
+        <a :href="/metrics.md?contains={{filterQuery}}" target="_blank">Markdown Table</a>
     </p>
 
     <div>
@@ -17,15 +17,15 @@
             <thead>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Cardinality</th>
-                <th>Help</th>
+                <th (click)="sortBy('name')">Name</th>
+                <th (click)="sortBy('type')">Type</th>
+                <th (click)="sortBy('cardinality')">Cardinality</th>
+                <th (click)="sortBy('help')">Help</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let metric of sortedMetrics">
-                <td>hi</td>
+                <td></td>
                 <td>{{metric.name}}</td>
                 <td>{{metric.type}}</td>
                 <td>{{metric.cardinality}}</td>

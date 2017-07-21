@@ -14,10 +14,12 @@ import 'metric_service.dart';
 class MetricViewer implements OnInit {
   final MetricService _metricService;
 
-  List<Metric> metrics = [];
-  List<Metric> sortedMetrics = [];
   String errorMessage;
-  String filterQuery;
+  List<Metric> _metrics = [];
+  List<Metric> sortedMetrics = [];
+  String filterQuery = '';
+  String sortKey = 'name';
+  int sortOrder = 1;
 
   MetricViewer(this._metricService);
 
@@ -28,17 +30,50 @@ class MetricViewer implements OnInit {
 
   Future<Null> getMetrics() async {
     try {
-      metrics = await _metricService.getMetrics();
-      sortedMetrics = metrics;
+      _metrics = await _metricService.getMetrics();
+      _setSortedMetrics();
     } catch (e) {
       errorMessage = e.toString();
     }
   }
 
-  filter(dynamic event) {
-    sortedMetrics = metrics.where((metric) =>
-        metric.name.toLowerCase().contains(
-            this.filterQuery.toLowerCase()
-        ));
+  _setSortedMetrics() {
+    if (filterQuery.isEmpty) {
+      sortedMetrics = _metrics;
+    } else {
+      sortedMetrics = _metrics.where((metric) =>
+          metric.name.toLowerCase().contains(this.filterQuery.toLowerCase())
+      ).toList();
+    }
+
+    sortedMetrics.sort((a, b) {
+      switch (sortKey) {
+        case 'name':
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase()) *
+              sortOrder;
+        case 'type':
+          return a.type.toLowerCase().compareTo(b.type.toLowerCase()) *
+              sortOrder;
+        case 'cardinality':
+          return a.cardinality.compareTo(b.cardinality) * sortOrder;
+        case 'help':
+          return a.help.toLowerCase().compareTo(b.help.toLowerCase()) *
+              sortOrder;
+      }
+    });
+  }
+
+  filter() {
+    _setSortedMetrics();
+  }
+
+  sortBy(String key) {
+    if (sortKey == key) {
+      sortOrder = sortOrder * -1;
+    } else {
+      sortOrder = 1;
+    }
+    sortKey = key;
+    _setSortedMetrics();
   }
 }

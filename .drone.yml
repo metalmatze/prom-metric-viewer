@@ -9,6 +9,7 @@ pipeline:
     - cd ui
     - pub get
     - pub build
+    - rm -rf build/web/packages
 
   build:
     image: golang:alpine

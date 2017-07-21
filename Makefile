@@ -21,7 +21,7 @@ deps:
 clean:
 	$(GO) clean -i ./...
 	packr clean
-	rm -rf public/build.js
+	rm -rf ui/build
 
 .PHONY: ui
 ui:

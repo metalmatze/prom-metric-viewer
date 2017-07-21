@@ -122,7 +122,7 @@ type jsonMetric struct {
 }
 
 func printWeb(metrics []Metric) error {
-	box := packr.NewBox("./public")
+	box := packr.NewBox("./ui/build/web/")
 	tem := template.New("index")
 	tem, err := tem.Parse(box.String("index.html"))
 	if err != nil {

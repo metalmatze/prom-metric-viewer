@@ -15,11 +15,7 @@ all: build
 
 .PHONY: deps
 deps:
-	@which yarn > /dev/null; if [ $$? -ne 0 ]; then \
-		npm install; \
-	else \
-		yarn install; \
-	fi
+	cd ui && pub get
 
 .PHONY: clean
 clean:
@@ -29,7 +25,7 @@ clean:
 
 .PHONY: ui
 ui:
-	./node_modules/.bin/webpack
+	cd ui && pub build
 
 .PHONY: fmt
 fmt:

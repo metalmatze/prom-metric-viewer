@@ -4,7 +4,7 @@ workspace:
 
 pipeline:
   ui:
-    image: kkarczmarczyk/node-yarn
+    image: google/dart
     commands:
     - make deps
     - make ui

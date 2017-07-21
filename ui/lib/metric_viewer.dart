@@ -15,6 +15,7 @@ class MetricViewer implements OnInit {
   final MetricService _metricService;
 
   List<Metric> metrics = [];
+  List<Metric> sortedMetrics = [];
   String errorMessage;
   String filterQuery;
 
@@ -28,8 +29,16 @@ class MetricViewer implements OnInit {
   Future<Null> getMetrics() async {
     try {
       metrics = await _metricService.getMetrics();
+      sortedMetrics = metrics;
     } catch (e) {
       errorMessage = e.toString();
     }
+  }
+
+  filter(dynamic event) {
+    sortedMetrics = metrics.where((metric) =>
+        metric.name.toLowerCase().contains(
+            this.filterQuery.toLowerCase()
+        ));
   }
 }

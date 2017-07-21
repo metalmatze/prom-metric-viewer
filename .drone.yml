@@ -6,8 +6,9 @@ pipeline:
   ui:
     image: google/dart
     commands:
-    - make deps
-    - make ui
+    - cd ui
+    - pub get
+    - pub build
 
   build:
     image: golang:alpine

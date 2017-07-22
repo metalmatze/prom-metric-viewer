@@ -8,6 +8,7 @@ pipeline:
     commands:
     - cd ui
     - pub get
+    - dartanalyzer .
     - pub build
     - rm -rf build/web/packages
 

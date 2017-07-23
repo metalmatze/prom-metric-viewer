@@ -1,0 +1,49 @@
+h3 {
+    font-weight: lighter;
+}
+
+.metrics-box {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
+}
+
+.filter-metrics {
+    padding: 32px;
+}
+
+.filter-metrics input[type=search] {
+    padding: 4px 0;
+    width: 100%;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    background: none;
+}
+
+.filter-metrics input[type=search]:focus {
+    border-bottom: 1px solid #3f51b5;
+}
+
+table {
+    width: 100%;
+    background-color: white;
+}
+
+table th, table td {
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+table th:hover, table td:hover {
+    cursor: pointer;
+}
+
+table thead th {
+    padding: 16px 2px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .54);
+}
+
+table tbody td {
+    padding: 8px 2px;
+}

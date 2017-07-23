@@ -1,0 +1,58 @@
+<h3>prom-metric-viewer</h3>
+
+
+<p>
+    We've found {{sortedMetrics.length}} metrics! -
+    <a href="/metrics.md?contains={{filterQuery}}" target="_blank">Markdown Table</a>
+</p>
+
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage != null">{{errorMessage}}</div>
+
+<div class="metrics-box">
+    <div class="filter-metrics">
+        <input type="search" class="form-control" placeholder="Filter Metrics" autofocus
+               [(ngModel)]="filterQuery"
+               (keyup)="filter()"/>
+    </div>
+
+    <table *ngIf="errorMessage == null">
+        <thead>
+        <tr>
+            <th></th>
+            <th (click)="sortBy('name')">
+                Name
+                <span class="glyphicon"
+                      [class.glyphicon-menu-up]="sortKey=='name' && sortOrder==1"
+                      [class.glyphicon-menu-down]="sortKey=='name' && sortOrder==-1"></span>
+            </th>
+            <th (click)="sortBy('type')">
+                Type
+                <span class="glyphicon"
+                      [class.glyphicon-menu-up]="sortKey=='type' && sortOrder==1"
+                      [class.glyphicon-menu-down]="sortKey=='type' && sortOrder==-1"></span>
+            </th>
+            <th (click)="sortBy('cardinality')">
+                Cardinality
+                <span class="glyphicon"
+                      [class.glyphicon-menu-up]="sortKey=='cardinality' && sortOrder==1"
+                      [class.glyphicon-menu-down]="sortKey=='cardinality' && sortOrder==-1"></span>
+            </th>
+            <th (click)="sortBy('help')">
+                Help
+                <span class="glyphicon"
+                      [class.glyphicon-menu-up]="sortKey=='help' && sortOrder==1"
+                      [class.glyphicon-menu-down]="sortKey=='help' && sortOrder==-1"></span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let metric of sortedMetrics">
+            <td></td>
+            <td>{{metric.name}}</td>
+            <td>{{metric.type}}</td>
+            <td>{{metric.cardinality}}</td>
+            <td>{{metric.help}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

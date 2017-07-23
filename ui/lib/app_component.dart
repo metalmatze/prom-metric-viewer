@@ -5,13 +5,15 @@ import 'package:angular2/angular2.dart';
 import 'metric.dart';
 import 'metric_service.dart';
 
+
 @Component(
-  selector: 'metric-viewer',
-  templateUrl: 'metric_viewer.html',
+  selector: 'mv-app',
+  templateUrl: 'app_component.html',
+  styleUrls: const ['app_component.css'],
   directives: const [COMMON_DIRECTIVES],
   providers: const [MetricService],
 )
-class MetricViewer implements OnInit {
+class AppComponent implements OnInit {
   final MetricService _metricService;
 
   String errorMessage;
@@ -21,7 +23,7 @@ class MetricViewer implements OnInit {
   String sortKey = 'name';
   int sortOrder = 1;
 
-  MetricViewer(this._metricService);
+  AppComponent(this._metricService);
 
   @override
   ngOnInit() async {

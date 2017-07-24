@@ -25,25 +25,44 @@ h3 {
 
 table {
     width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
     background-color: white;
 }
 
 table th, table td {
-    border-bottom: 1px solid rgba(0, 0, 0, .12);
-}
-
-table th:hover, table td:hover {
-    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, .16);
 }
 
 table thead th {
-    padding: 16px 2px;
+    padding: 16px 8px;
     text-align: left;
     font-size: 12px;
     font-weight: 500;
-    color: rgba(0, 0, 0, .54);
+    color: rgba(0, 0, 0, .64);
+}
+
+table thead th:hover {
+    cursor: pointer;
+}
+
+table tbody tr:hover {
+    cursor: pointer;
+    background-color: #eee;
 }
 
 table tbody td {
-    padding: 8px 2px;
+    padding: 8px;
+}
+
+table tbody td.help {
+    color: rgba(0, 0, 0, .64);
+}
+
+table tbody td.expand {
+    color: rgba(0, 0, 0, .32);
+}
+
+table tbody tr:hover td.expand {
+    color: rgba(0, 0, 0, .64);
 }

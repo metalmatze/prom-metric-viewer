@@ -142,6 +142,9 @@ func printWeb(metrics []Metric) error {
 	})
 
 	http.HandleFunc("/metrics.json", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+
 		queryName := r.URL.Query().Get("name")
 		if queryName != "" {
 			for _, metric := range metrics {
@@ -181,8 +184,6 @@ func printWeb(metrics []Metric) error {
 			http.Error(w, "failed to marshal json", http.StatusInternalServerError)
 			return
 		}
-		w.Header().Set("Content-Type", "application/json")
-		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Write(data)
 	})
 

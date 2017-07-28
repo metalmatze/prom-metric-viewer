@@ -212,7 +212,7 @@ func printWeb(metrics []Metric) error {
 		tab.Flush()
 	})
 
-	http.Handle("/build.js", http.FileServer(box))
+	http.Handle("/main.dart.js", http.FileServer(box))
 
 	return http.ListenAndServe(":8080", nil)
 }

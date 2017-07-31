@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+table thead th {
+    padding: 16px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .64);
+    text-align: left;
+}
+
+table thead th.value {
+    width: 100px;
+}
+
+table tbody td {
+    padding: 8px;
+    border-collapse: collapse;
+    border-bottom: 1px solid rgba(0, 0, 0, .16);
+}

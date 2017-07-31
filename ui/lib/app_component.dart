@@ -4,13 +4,13 @@ import 'package:angular2/angular2.dart';
 
 import 'metric.dart';
 import 'metric_service.dart';
-
+import 'expanded_component.dart';
 
 @Component(
   selector: 'mv-app',
   templateUrl: 'app_component.html',
   styleUrls: const ['app_component.css'],
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [COMMON_DIRECTIVES, ExpandedComponent],
   providers: const [MetricService],
 )
 class AppComponent implements OnInit {
@@ -77,5 +77,9 @@ class AppComponent implements OnInit {
     }
     sortKey = key;
     _setSortedMetrics();
+  }
+
+  expand(Metric metric) {
+    metric.expanded = !metric.expanded;
   }
 }

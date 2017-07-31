@@ -1,0 +1,14 @@
+<table>
+    <thead>
+    <tr>
+        <th class="element">Element</th>
+        <th class="value">Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let metric of metrics">
+        <td>{{metric.element}}</td>
+        <td>{{metric.value}}</td>
+    </tr>
+    </tbody>
+</table>

@@ -1,11 +1,5 @@
 <h3>prom-metric-viewer</h3>
 
-
-<p>
-    We've found {{sortedMetrics.length}} metrics! -
-    <a href="/metrics.md?contains={{filterQuery}}" target="_blank">Markdown Table</a>
-</p>
-
 <div class="alert alert-danger" role="alert" *ngIf="errorMessage != null">{{errorMessage}}</div>
 
 <div class="metrics-box">
@@ -13,48 +7,57 @@
         <input type="search" class="form-control" placeholder="Filter Metrics" autofocus
                [(ngModel)]="filterQuery"
                (keyup)="filter()"/>
+        <!--<button (click)="getMetrics()">Reload</button>-->
+
+        <p>
+            We've found {{(sortedMetrics.length/2).floor()}} metrics! -
+            <a href="/metrics.md?contains={{filterQuery}}" target="_blank">Markdown Table</a>
+        </p>
     </div>
 
-    <table *ngIf="errorMessage == null">
-        <thead>
-        <tr>
-            <th (click)="sortBy('name')">
-                Name
+    <div class="metrics-table" *ngIf="errorMessage == null">
+        <div class="thead tr">
+            <div class="th name" (click)="sortBy('name')">
+                <button>Name</button>
                 <i class="fa"
-                      [class.fa-long-arrow-up]="sortKey=='name' && sortOrder==1"
-                      [class.fa-long-arrow-down]="sortKey=='name' && sortOrder==-1"></i>
-            </th>
-            <th (click)="sortBy('type')">
-                Type
+                   [class.fa-long-arrow-up]="sortKey=='name' && sortOrder==1"
+                   [class.fa-long-arrow-down]="sortKey=='name' && sortOrder==-1"></i>
+            </div>
+            <div class="th type" (click)="sortBy('type')">
+                <button>Type</button>
                 <i class="fa"
-                      [class.fa-long-arrow-up]="sortKey=='type' && sortOrder==1"
-                      [class.fa-long-arrow-down]="sortKey=='type' && sortOrder==-1"></i>
-            </th>
-            <th (click)="sortBy('cardinality')">
-                Cardinality
+                   [class.fa-long-arrow-up]="sortKey=='type' && sortOrder==1"
+                   [class.fa-long-arrow-down]="sortKey=='type' && sortOrder==-1"></i>
+            </div>
+            <div class="th cardinality" (click)="sortBy('cardinality')">
+                <button>Cardinality</button>
                 <i class="fa"
-                      [class.fa-long-arrow-up]="sortKey=='cardinality' && sortOrder==1"
-                      [class.fa-long-arrow-down]="sortKey=='cardinality' && sortOrder==-1"></i>
-            </th>
-            <th (click)="sortBy('help')">
-                Help
+                   [class.fa-long-arrow-up]="sortKey=='cardinality' && sortOrder==1"
+                   [class.fa-long-arrow-down]="sortKey=='cardinality' && sortOrder==-1"></i>
+            </div>
+            <div class="th help" (click)="sortBy('help')">
+                <button>Help</button>
                 <i class="fa"
-                      [class.fa-long-arrow-up]="sortKey=='help' && sortOrder==1"
-                      [class.fa-long-arrow-down]="sortKey=='help' && sortOrder==-1"></i>
-            </th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let metric of sortedMetrics">
-            <td>{{metric.name}}</td>
-            <td>{{metric.type}}</td>
-            <td>{{metric.cardinality}}</td>
-            <td class="help">{{metric.help}}</td>
-            <td class="expand">
-                <i class="fa fa-chevron-up" aria-hidden="true"></i>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+                   [class.fa-long-arrow-up]="sortKey=='help' && sortOrder==1"
+                   [class.fa-long-arrow-down]="sortKey=='help' && sortOrder==-1"></i>
+            </div>
+            <div class="th"></div>
+        </div>
+        <div class="tbody tr-wrapper" *ngFor="let metric of sortedMetrics">
+            <div class="tr" (click)="expand(metric)">
+                <div class="td name">{{metric.name}}</div>
+                <div class="td type">{{metric.type}}</div>
+                <div class="td cardinality">{{metric.cardinality}}</div>
+                <div class="td help">{{metric.help}}</div>
+                <div class="td">
+                    <i aria-hidden="true" class="fa"
+                       [class.fa-chevron-down]="!metric.expanded"
+                       [class.fa-chevron-up]="metric.expanded"></i>
+                </div>
+            </div>
+            <div class="tr" *ngIf="metric.expanded">
+                <metric-expended [metric]="metric"></metric-expended>
+            </div>
+        </div>
+    </div>
 </div>

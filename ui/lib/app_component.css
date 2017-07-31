@@ -8,14 +8,16 @@ h3 {
 
 .filter-metrics {
     padding: 32px;
+    background-color: #fafafa;
 }
 
 .filter-metrics input[type=search] {
     padding: 4px 0;
     width: 100%;
-    border: 0;
     outline: none;
+    border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, .12);
+    font-size: 14px;
     background: none;
 }
 
@@ -23,46 +25,55 @@ h3 {
     border-bottom: 1px solid #3f51b5;
 }
 
-table {
+.metrics-table .tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     width: 100%;
-    border-spacing: 0;
     border-collapse: collapse;
-    background-color: white;
-}
-
-table th, table td {
     border-bottom: 1px solid rgba(0, 0, 0, .16);
 }
 
-table thead th {
+.metrics-table .thead .th {
     padding: 16px 8px;
-    text-align: left;
-    font-size: 12px;
-    font-weight: 500;
     color: rgba(0, 0, 0, .64);
 }
 
-table thead th:hover {
-    cursor: pointer;
+.metrics-table .thead .th button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 500;
+    background: none;
+    color: rgba(0, 0, 0, .64);
 }
 
-table tbody tr:hover {
-    cursor: pointer;
-    background-color: #eee;
+.metrics-table .tbody.tr {
+    background-color: red;
 }
 
-table tbody td {
+.metrics-table .tr .td {
     padding: 8px;
 }
 
-table tbody td.help {
-    color: rgba(0, 0, 0, .64);
+.metrics-table .name {
+    width: 300px;
 }
 
-table tbody td.expand {
-    color: rgba(0, 0, 0, .32);
+.metrics-table .type {
+    width: 100px;
 }
 
-table tbody tr:hover td.expand {
-    color: rgba(0, 0, 0, .64);
+.metrics-table .cardinality {
+    width: 80px;
+}
+
+.metrics-table .help {
+    flex-grow: 1;
+}
+
+.metrics-table metric-expended {
+    width: 100%;
 }
